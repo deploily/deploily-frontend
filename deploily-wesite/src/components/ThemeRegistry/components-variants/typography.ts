@@ -72,18 +72,18 @@ export const TypographyVariants = (theme: Theme) => ({
     },
     sectionTitle: {
         fontFamily: "Inter, sans-serif",
-        fontSize: "16px",
+        fontSize: "14px",
         color: "text.primary",
         fontWeight: 600,
         letterSpacing: "0.5px",
     },
     sectionContent: {
         fontFamily: "Inter, sans-serif",
-        fontSize: "1rem",
+        fontSize: "1.1rem",
         fontWeight: 400,
         letterSpacing: "0.1px",
         lineHeight: "1.6",
-        color: "text.secondary"
+        color: theme.palette.mode == "light" ? theme.palette.text.secondary : theme.palette.grey[50],
     },
     sectionSubTitle: {
         ffontFamily: "Inter",
