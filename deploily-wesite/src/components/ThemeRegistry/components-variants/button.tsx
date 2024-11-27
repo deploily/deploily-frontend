@@ -3,14 +3,14 @@ import { Theme } from '@mui/material/styles'
 
 declare module '@mui/material/Button' {
     interface ButtonPropsVariantOverrides {
-        primaryOrangeContainedButton: true;
+        primaryBlueContainedButton: true;
 
     }
 }
 
 export const ButtonVariants = (defaultTheme: Theme) => [
     {
-        props: { variant: 'primaryOrangeContainedButton' },
+        props: { variant: 'primaryBlueContainedButton' },
         style: {
             textTransform: 'none',
             fontWeight: 600,

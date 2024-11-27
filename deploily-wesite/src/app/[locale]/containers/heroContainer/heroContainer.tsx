@@ -1,7 +1,10 @@
 "use client"
-import { alpha, Container, Grid, Typography, useTheme } from "@mui/material";
+import { alpha, Button, Container, Grid, Typography, useTheme } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import { motion } from 'framer-motion';
+
 export default function HeroContainer() {
     const theme = useTheme();
     const t = useTranslations("hero");
@@ -41,7 +44,7 @@ export default function HeroContainer() {
                     container
                     sx={{
                         width: '100%',
-                        // justifyContent: "center",
+                        justifyContent: "center",
                         alignItems: "center",
                         textAlign: { xs: "center", md: "left" },
                         padding: { xs: "20px", md: "40px" },
@@ -49,8 +52,8 @@ export default function HeroContainer() {
                     }}
                     direction="row"
                 >
-                    <Grid item xs={12} md={8}>
-                        <Grid container direction="column" >
+                    <Grid item xs={12} md={6}>
+                        <Grid container direction="column" alignItems="center" justifyContent="center">
                             <Grid item sx={{ padding: { xs: "5px", md: "10px" } }}>
                                 <Typography
                                     sx={{
@@ -63,7 +66,7 @@ export default function HeroContainer() {
                                         padding: { xs: "3px", md: "5px" }
                                     }}
                                 >
-                                    From Development to Deployment—Made Easy.
+                                    {t("title")}
                                 </Typography>
                                 <Typography
                                     width="90%"
@@ -71,21 +74,49 @@ export default function HeroContainer() {
                                         paddingTop: { xs: "20px", sm: "30px" },
                                         textAlign: "start",
                                         fontSize: {
-                                            xs: 'clamp(0.75rem, 3vw, 1rem)',  
-                                            sm: 'clamp(1rem, 3vw, 1.25rem)',  
-                                            md: 'clamp(1.25rem, 3vw, 1.5rem)'  }                                       
+                                            xs: 'clamp(0.75rem, 3vw, 1rem)',
+                                            sm: 'clamp(1rem, 3vw, 1.25rem)',
+                                            md: 'clamp(1.25rem, 3vw, 1.5rem)'
+                                        }
                                     }}
                                     variant="heroText"
                                 >
-                                    Deploy your projects with ease—no DevOps skills needed.
-                                    We offer free APIs and powerful deployment infrastructure to make your life easier.
-                                    Focus on what you do best, while we handle the deployment for you.
+                                    {t("subtitle")}
                                 </Typography>
                             </Grid>
-                           
+                            <Grid item>
+                                <Button
+                                    variant="primaryBlueContainedButton"
+                                    sx={{
+                                        marginTop: { xs: "30px", md: "50px" },
+                                    }}
+                                >
+                                    {t("buttonHero")}
+                                </Button>
+                            </Grid>
+
                         </Grid>
                     </Grid>
-                 
+                    <Grid item xs={12} md={5} sx={{ justifyContent: 'center', display: 'flex' }} width={{ md: "50%", sm: "100%" }}>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: imageLoaded ? 1 : 0, scale: imageLoaded ? 1 : 0.9 }}
+                            transition={{ duration: 0.5 }}
+                            style={{ width: '90%', height: 'auto' }}
+                            whileHover={{ scale: 1.1, rotate: 3 }}
+                            whileTap={{ scale: 0.8 }}
+                        >
+                            <Image
+                                src="/images/deploy_image.png"
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                                style={{ width: '100%', height: 'auto' }}
+                                alt="deploy"
+                            />
+                        </motion.div>
+                    </Grid>
+
                 </Grid>
             </Container>
 

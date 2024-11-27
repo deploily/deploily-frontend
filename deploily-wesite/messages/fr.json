@@ -1,4 +1,8 @@
 {
-  "platformName": "Deploily"
-
+  "platformName": "Deploily",
+  "hero": {
+    "title": "Du développement au déploiement—En toute simplicité.",
+    "subtitle": "Déployez vos projets en toute simplicité, aucune compétence DevOps n'est requise. Nous proposons des API gratuites et une infrastructure de déploiement puissante pour vous simplifier la vie. Concentrez-vous sur ce que vous faites de mieux pendant que nous nous occupons du déploiement pour vous.",
+    "buttonHero": "Déployer un nouveau projet"
+  }
 }

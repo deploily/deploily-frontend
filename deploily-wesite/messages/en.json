@@ -1,4 +1,8 @@
 {
-    "platformName": "Deploily"
-   
+    "platformName": "Deploily",
+    "hero": {
+        "title": "From Development to Deployment—Made Easy.",
+        "subtitle": "Deploy your projects with ease—no DevOps skills needed. We offer free APIs and powerful deployment infrastructure to make your life easier. Focus on what you do best, while we handle the deployment for you.",
+        "buttonHero": "Deploy a new project"
+    }
 }
