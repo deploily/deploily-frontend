@@ -59,17 +59,19 @@ function AppAppBar() {
     const appBarColor =
         theme.palette.mode == "dark" ? theme.palette.primary.main : theme.palette.secondary.main;
 
+    
     return (
         <>
             <AppBar
                 ref={observedDiv}
-                position="fixed"
-                style={{ boxShadow: 'none' }}
+                enableColorOnDark
                 sx={{
-                    bgcolor: theme.palette.mode == "dark" ? alpha("#000103", 0.9) : alpha("#FFFFFF", 0.7)
+                    boxShadow: 10,
+                    bgcolor: theme.palette.mode == "dark" ? alpha("#0c0d0f", 0.9) : alpha("#FFFFFF", 0.7),
+                    backgroundImage: 'none',
                 }}
-            >
-                <Toolbar>
+            > 
+            <Toolbar>
                     <Container maxWidth={false} style={{ padding: "0px", maxWidth: "1280px" }} >
 
                     <Grid container direction="row" spacing={8} sx={{ display: "flex", justifyContent: "space-between", }} alignItems="center" >
@@ -92,26 +94,7 @@ function AppAppBar() {
                             sx={{
                                 alignItems: "center",
                             }}>
-                         <Grid container spacing="20px" sx={{ alignItems: "center" }} display={{ sm: "flex", md: "flex", xs: "none" }}>
-                                  {/*  <Grid item>
-                                    <Link onClick={() => scrollToSection('Service')} underline="hover" color={appBarColor}>
-                                        <Typography variant='appBarSubTitle' textAlign="center" paddingLeft={1}  > {t("Services")} </Typography>
-                                    </Link>
-                                </Grid>
-                                <Grid item>
-                                    <Link onClick={() => scrollToSection('Process')} underline="hover" color={appBarColor} >
-                                        <Typography variant='appBarSubTitle' textAlign="center" paddingLeft={1}  > {t("Process")} </Typography>
-                                    </Link>
-                                </Grid>
-                                <Grid item marginRight="100px">
-                                    <Link onClick={() => scrollToSection('contactUs')} underline="hover" color={appBarColor}>
-                                        <Typography variant='appBarSubTitle' textAlign="center" paddingLeft={1}  > {t("ContactUs")}</Typography>
-                                    </Link>
-                                </Grid>*/}
-                                <Grid item >
-                                    <LocaleSwitcher color={appBarColor} />
-                                </Grid>
-                            </Grid> 
+                        
                             <Grid display={{ sm: "none", md: "none", xs: "flex" }}>
                                 <LocaleSwitcher color={appBarColor} />
                                 <Button
