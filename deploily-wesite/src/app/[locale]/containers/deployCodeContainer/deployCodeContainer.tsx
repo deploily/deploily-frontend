@@ -1,9 +1,10 @@
 "use client"
-import { alpha, Container, Grid, Typography, useTheme } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { alpha, Grid, Typography, useTheme } from "@mui/material";
+import React from "react";
 import { useTranslations } from "next-intl";
 export default function DeployCodeContainer() {
     const theme = useTheme();
+    const t = useTranslations("service");
 
     return (
         <Grid sx={{
@@ -37,7 +38,7 @@ export default function DeployCodeContainer() {
                                 padding: { xs: "3px", md: "5px" }
                             }}
                         >
-                            Deploy from Git Without DevOps
+                        {t("title2")}
                         </Typography>
                     </Grid>
 
@@ -51,17 +52,10 @@ export default function DeployCodeContainer() {
                             }}
                             variant="sectionContent"
                         >
-                            Ou Forget about the complexities of traditional DevOps workflows. With our platform,
-                            you can deploy your projects directly from Git with just a few clicks.
-                            You don’t need any DevOps experience or specialized knowledge—simply connect your repository,
-                            configure your settings, and deploy in no time. Streamline your deployment process and get your code live faster,
-                            without worrying about the technical hurdles.
-
+                        {t("description2")}
                         </Typography>
                     </Grid>
-
                 </Grid>
-
         </Grid >
     );
 }

@@ -1,11 +1,11 @@
 "use client"
-import { alpha, Container, Grid, Typography, useTheme } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { alpha, Grid, Typography, useTheme } from "@mui/material";
+import React  from "react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 export default function ManagedInfrastructureContainer() {
     const theme = useTheme();
+    const t = useTranslations("service");
 
     return (
         <Grid sx={{
@@ -39,7 +39,7 @@ export default function ManagedInfrastructureContainer() {
                             padding: { xs: "3px", md: "5px" }
                         }}
                     >
-                        Build Deployment Infrastructure
+                        {t("title3")}
                     </Typography>
                 </Grid>
 
@@ -53,36 +53,9 @@ export default function ManagedInfrastructureContainer() {
                         }}
                         variant="sectionContent"
                     >
-                        Our platform lets you easily build and manage your deployment infrastructure.
-                        Whether you are deploying a single app or multiple services, our scalable solutions adapt to your needs.
-                        We provide the tools to create a seamless deployment pipeline, ensuring your infrastructure grows with you.
-                        From automated scaling to customizable environments, we’ve got everything you need to build a robust and reliable deployment system.
-
-
+                        {t("description3")}
                     </Typography>
                 </Grid>
-
-            </Grid>
-            <Grid container justifyContent={"center"}
-            sx={{margin: "50px"}}>
-                {/* <Image
-                    src="/images/work_in_progress.jpeg"
-                    width={699}
-                    height={385}
-                    alt="workinprogress"
-                    style={{
-                        marginRight: "20px"
-                    }}
-                /> */}
-                <Image
-                    src="/images/work_inprogress.png"
-                    width={1000}
-                    height={200}
-                    alt="workinprogress"
-                    style={{
-                        marginRight: "20px"
-                    }}
-                />
 
             </Grid>
         </Grid >

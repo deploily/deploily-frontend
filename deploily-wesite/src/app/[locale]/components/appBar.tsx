@@ -94,7 +94,11 @@ function AppAppBar() {
                             sx={{
                                 alignItems: "center",
                             }}>
-                        
+                                <Grid container spacing="20px" sx={{ alignItems: "center" }} display={{ sm: "flex", md: "flex", xs: "none" }}>
+                                    <Grid item >
+                                        <LocaleSwitcher color={appBarColor} />
+                                    </Grid>
+                                </Grid> 
                             <Grid display={{ sm: "none", md: "none", xs: "flex" }}>
                                 <LocaleSwitcher color={appBarColor} />
                                 <Button
