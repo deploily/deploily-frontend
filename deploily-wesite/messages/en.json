@@ -1,0 +1,17 @@
+{
+    "platformName": "Deploily",
+    "hero": {
+        "title": "From Development to Deployment—Made Easy.",
+        "subtitle": "Deploy your projects with ease—no DevOps skills needed. We offer free APIs and powerful deployment infrastructure to make your life easier. Focus on what you do best, while we handle the deployment for you.",
+        "buttonHero": "Deploy a new project"
+    },
+    "service": {
+        "title1": "API Services",
+        "description1": "Our API service provides easy-to-use, powerful endpoints that let you integrate advanced features like authentication,  databases, and real-time data into your applications. Whether you are building a prototype,a startup, or a full-scale project, our APIs handle the backend complexity, so you can focus on building your app quickly and efficiently. No server setup, no hassle—just seamless integration for faster development.",
+        "title2": "Deploy from Git Without DevOps",
+        "description2":"Our Forget about the complexities of traditional DevOps workflows. With our platform, you can deploy your projects directly from Git with just a few clicks.You don't need any DevOps experience or specialized knowledge—simply connect your repository,configure your settings, and deploy in no time. Streamline your deployment process and get your code live faster,ithout worrying about the technical hurdles.",
+        "title3": "Build Deployment Infrastructure",
+        "description3":"Our platform lets you easily build and manage your deployment infrastructure. Whether you are deploying a single app or multiple services, our scalable solutions adapt to your needs.We provide the tools to create a seamless deployment pipeline, ensuring your infrastructure grows with you. From automated scaling to customizable environments, we’ve got everything you need to build a robust and reliable deployment system."
+    }
+
+}
