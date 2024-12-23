@@ -1,17 +1,9 @@
 import React, { ReactNode } from "react";
-import { NextIntlClientProvider, useMessages } from "next-intl";
-import { createTheme, Grid, PaletteMode } from "@mui/material";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
 import { locales } from "../../config";
 import StoreProvider from "../storeProvider";
-import getLPTheme from "../../components/ThemeRegistry/theme";
-import MainLyoutContent from "../mainLayoutContent";
 import MainLayoutContent from "../mainLayoutContent";
-import { Metadata } from "next";
-
-
-// import { Inter } from 'next/font/google'
-// const inter = Inter({ subsets: ['latin'] })
+import { getMessages } from "next-intl/server";
 
 export const generateViewport = () => ({
   width: "device-width",
@@ -24,27 +16,24 @@ export function generateStaticParams() {
 
 type Props = {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
-export default function RootLayout({
-  children,
-  params: { locale }
-}: Props) {
+export default async function RootLayout({ children, params }: Props) {
+  // Resolve the params Promise to access the locale
+  const { locale } = await params;
 
-  unstable_setRequestLocale(locale);
-  const messages = useMessages();
+  const messages = await getMessages();
 
   return (
     <html lang={locale}>
       <body suppressHydrationWarning={true}>
         <StoreProvider>
-          <NextIntlClientProvider locale={locale} messages={messages}  >
-            <MainLayoutContent >{children}</MainLayoutContent>
-          </NextIntlClientProvider></StoreProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <MainLayoutContent>{children}</MainLayoutContent>
+          </NextIntlClientProvider>
+        </StoreProvider>
       </body>
     </html>
-
-
   );
 }

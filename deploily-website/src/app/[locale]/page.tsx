@@ -3,7 +3,6 @@ import AppAppBar from "./components/appBar";
 import ScrollToTopButton from "./components/scrollTopButton";
 import HeroContainer from "./containers/heroContainer/heroContainer";
 
-import { ThemeProvider } from "../../components/ThemeRegistry/ThemeRegistry";
 import ApiServiceContainer from "./containers/apiServicesContainer/apiServicesContainer";
 import DeployCodeContainer from "./containers/deployCodeContainer/deployCodeContainer";
 import ManagedInfrastructureContainer from "./containers/managedInfrastructureContainer/managedInfrastructureContainer";
