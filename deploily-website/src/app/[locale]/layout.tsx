@@ -4,6 +4,7 @@ import { locales } from "../../config";
 import StoreProvider from "../storeProvider";
 import MainLayoutContent from "../mainLayoutContent";
 import { getMessages } from "next-intl/server";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const generateViewport = () => ({
   width: "device-width",
@@ -28,6 +29,7 @@ export default async function RootLayout({ children, params }: Props) {
   return (
     <html lang={locale}>
       <body suppressHydrationWarning={true}>
+        <GoogleAnalytics gaId="G-JFDSDGDFG" />
         <StoreProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <MainLayoutContent>{children}</MainLayoutContent>
