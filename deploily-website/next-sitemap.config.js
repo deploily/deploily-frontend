@@ -1,4 +1,4 @@
 module.exports = {
-    siteUrl: 'https://ttk-website.ttk-test.xyz', // Replace with your site URL
+    siteUrl: 'https://deploily.cloud', // Replace with your site URL
     generateRobotsTxt: true, // (optional)
 }
