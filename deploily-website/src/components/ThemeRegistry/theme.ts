@@ -1,5 +1,3 @@
-import {Inter} from "next/font/google";
-
 import {PaletteMode, Theme} from "@mui/material";
 import {red} from "@mui/material/colors";
 import {
@@ -26,8 +24,6 @@ declare module "@mui/material/styles/createPalette" {
     900: string;
     1000: string;
   }
-
-  interface PaletteColor extends ColorRange {}
 }
 
 declare module "@mui/material/styles" {
