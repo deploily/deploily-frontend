@@ -11,7 +11,8 @@
         "lint:fix": "npm run lint -- --fix",
         "prettier": "npx prettier src  --check",
         "prettier:fix": "npm run prettier -- --write",
-        "format": "npm run prettier:fix && npm run lint:fix"
+        "format": "npm run prettier:fix && npm run lint:fix",
+        "pre-commit": "npm run format"
     },
     "dependencies": {
         "@emotion/react": "^11.13.0",
@@ -73,5 +74,13 @@
         "fs": false,
         "os": false,
         "path": false
+    } ,
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*": "prettier --write"
     }
 }
