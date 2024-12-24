@@ -12,15 +12,20 @@ export const generateViewport = () => ({
   initialScale: 1,
 });
 export const metadata: Metadata = {
+  metadataBase: new URL("https://deploily.cloud"),
   title: "Deploily",
-  description: "Open-source cloud proxy solution, offers local alternatives to foreign APIs, and ensures compliance with Algerian data protection regulations.",
+  description: `Open-source cloud proxy solution, 
+                offers local alternatives to foreign APIs,
+                and ensures compliance with Algerian data protection regulations.`,
   keywords: "Cloud Proxy Solution, Application Deployment, Open Source Platform, Algerian Data Protection, Local Cloud Hosting, Local API Alternatives",
   openGraph: {
     type: "website",
     url: "https://deploily.cloud",
     title: "Deploily",
     siteName: "Deploily",
-    description: `Open-source cloud proxy solution, offers local alternatives to foreign APIs, and ensures compliance with Algerian data protection regulations.`,
+    description: `Open-source cloud proxy solution,
+                  offers local alternatives to foreign APIs,
+                  and ensures compliance with Algerian data protection regulations.`,
     images: [{
       url: "https://deploily.cloud/_next/image?url=%2Fimages%2Flogo_name.png&w=256&q=75",
     }],
