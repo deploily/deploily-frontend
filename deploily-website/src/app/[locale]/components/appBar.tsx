@@ -36,9 +36,6 @@ function AppAppBar() {
     [observedDiv.current],
   );
 
-  const appBarColor =
-    theme.palette.mode == "dark" ? theme.palette.primary.main : theme.palette.secondary.main;
-
   return (
     <>
       <AppBar
@@ -86,11 +83,11 @@ function AppAppBar() {
                   display={{sm: "flex", md: "flex", xs: "none"}}
                 >
                   <Grid item>
-                    <LocaleSwitcher color={appBarColor} />
+                    <LocaleSwitcher />
                   </Grid>
                 </Grid>
                 <Grid display={{sm: "none", md: "none", xs: "flex"}}>
-                  <LocaleSwitcher color={appBarColor} />
+                  <LocaleSwitcher />
                   <Button
                     variant="text"
                     color="primary"
