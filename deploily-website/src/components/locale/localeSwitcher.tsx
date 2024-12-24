@@ -1,72 +1,42 @@
-import { useLocale } from 'next-intl';
-import { FormControl, MenuItem, IconButton, Menu, Typography, Grid, Button } from '@mui/material';
-import { useState, useTransition } from 'react';
-import { usePathname, useRouter } from '../../navigation';
-import { locales } from '../../config';
-import LanguageIcon from '@mui/icons-material/Language';
+import { FormControl, MenuItem, Select } from "@mui/material";
+import { useLocale } from "next-intl";
 
+import { useTransition } from "react";
+import { locales } from "../../config";
+import { usePathname, useRouter } from "../../navigation";
 
-
-export default function LocaleSwitcher({ color }) {
-    const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(
-        null
-    );
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElUser(event.currentTarget);
-    };
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    }
-    const locale = useLocale();
-
-
-    const router = useRouter();
-    const [isPending, startTransition] = useTransition();
-    const pathname = usePathname();
-
-
-
-    return (
-
-
-        <FormControl >
-            <Button size="medium" onClick={handleOpenUserMenu}>
-                <Grid container direction="row" spacing="10px" sx={{ display: "flex", alignItems: "center", paddingLeft: "0px" }}>
-                    <Grid item>
-                        <Typography variant='appBarSubTitle' textAlign="center" paddingLeft={1} color={color} >{locale.toUpperCase()}</Typography>
-                    </Grid>
-                    <Grid item display={{ sm: "flex", md: "flex", xs: "none" }}>
-                        <LanguageIcon htmlColor={color} />  </Grid>
-                </Grid>
-            </Button>
-            <Menu
-                id="menu-AImodels"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-            >
-                {locales.map((loc) => (
-                    <MenuItem key={`${loc}`} onClick={() => {
-                        startTransition(() => {
-                            router.replace(pathname, { locale: loc });
-                        });
-                        handleCloseUserMenu();
-                    }}
-                    >
-                        <Typography textAlign="center">{loc.toUpperCase()}</Typography>
-                    </MenuItem>
-                ))}
-            </Menu>
-        </FormControl>
-    );
+export default function LocaleSwitcher() {
+  const locale = useLocale();
+  const router = useRouter();
+  const [, startTransition] = useTransition();
+  const pathname = usePathname();
+  const handleChange = (event: { target: { value: string } }) => {
+    startTransition(() => {
+      router.replace(pathname, { locale: event.target.value });
+    });
+  };
+  return (
+    <FormControl required>
+      <Select
+        sx={{
+          width: "70px",
+          height: "40px",
+          fontSize: "14px",
+          fontWeight: 400,
+          borderRadius: "8px",
+          color: "white",
+        }}
+        labelId="demo-simple-select-required-label"
+        id="demo-simple-select-required"
+        value={locale}
+        onChange={handleChange}
+      >
+        {locales.map((loc) => (
+          <MenuItem key={loc} value={loc} sx={{ color: "white" }}>
+            {loc.toUpperCase()}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+  );
 }

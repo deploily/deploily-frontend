@@ -1,7 +1,7 @@
 "use client";
 
-import { ReactNode } from "react";
-import { NextIntlClientProvider, AbstractIntlMessages } from "next-intl";
+import {ReactNode} from "react";
+import {NextIntlClientProvider, AbstractIntlMessages} from "next-intl";
 
 type Props = {
   messages: AbstractIntlMessages;
@@ -11,13 +11,7 @@ type Props = {
   timeZone: string;
 };
 
-export default function NextIntlProvider({
-  messages,
-  locale,
-  children,
-  now,
-  timeZone,
-}: Props) {
+export default function NextIntlProvider({messages, locale, children, now, timeZone}: Props) {
   return (
     <NextIntlClientProvider
       locale={locale}
