@@ -6,11 +6,12 @@ import { socialMedias } from "./utils/about";
 function Copyright() {
     return (
         <Typography variant="body2"  >
-            {'Copyright © '}
-            <Link color="inherit" href={process.env.WEB_SITE_URL}>
-                Deploily
-            </Link>{' '}
+            {'Copyright ©  '}
             {new Date().getFullYear()}
+            {' '}
+            <Link color="inherit" rel="noopener" target="blank" href={"https://transformatek.dz"}>
+                SARL Transformatek
+            </Link>
             {'.'}
         </Typography>
     );
@@ -39,7 +40,7 @@ export default function Footer() {
 
                     {socialMedias.map((socialM, index) => (
                         <Grid key={index} item >
-                            <a href={socialM.lien} target="_blank" rel="noopener noreferrer" style={{ margin: "2px", paddingBottom: "0px", color: "white" }}>
+                            <a href={socialM.link} target="_blank" rel="noopener noreferrer" style={{ margin: "2px", paddingBottom: "0px", color: "white" }}>
                                 <Box
                                     key={index}
                                     sx={{ py: 1, display: 'flex', gap: 1.5, alignItems: 'center' }}
