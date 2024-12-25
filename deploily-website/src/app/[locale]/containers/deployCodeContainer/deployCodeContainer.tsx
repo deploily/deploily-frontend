@@ -50,7 +50,7 @@ export default function DeployCodeContainer() {
               paddingTop: {xs: "20px", sm: "30px"},
               textAlign: "center",
             }}
-            variant="sectionContent"
+            // variant="sectionContent"
           >
             {t("description2")}
           </Typography>

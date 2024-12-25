@@ -50,7 +50,7 @@ export default function ApiServiceContainer() {
               paddingTop: {xs: "20px", sm: "30px"},
               textAlign: "center",
             }}
-            variant="sectionContent"
+            // variant="sectionContent"
           >
             {t("description1")}
           </Typography>

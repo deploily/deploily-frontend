@@ -2,10 +2,12 @@ import React, {ReactNode} from "react";
 import {NextIntlClientProvider} from "next-intl";
 import {locales} from "../../config";
 import StoreProvider from "../storeProvider";
-import MainLayoutContent from "../mainLayoutContent";
 import {getMessages} from "next-intl/server";
 import {GoogleAnalytics} from "@next/third-parties/google";
 import type {Metadata} from "next";
+import {AntdRegistry} from "@ant-design/nextjs-registry";
+import {ConfigProvider} from "antd";
+import {theme} from "../../styles/theme";
 
 export const generateViewport = () => ({
   width: "device-width",
@@ -57,7 +59,9 @@ export default async function RootLayout({children, params}: Props) {
         <GoogleAnalytics gaId="G-JFDSDGDFG" />
         <StoreProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <MainLayoutContent>{children}</MainLayoutContent>
+            <AntdRegistry>
+              <ConfigProvider theme={theme}>{children}</ConfigProvider>
+            </AntdRegistry>
           </NextIntlClientProvider>
         </StoreProvider>
       </body>

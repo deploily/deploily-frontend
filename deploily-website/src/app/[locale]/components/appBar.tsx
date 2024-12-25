@@ -1,109 +1,57 @@
 "use client";
-import * as React from "react";
 import Image from "next/image";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
-import MenuIcon from "@mui/icons-material/Menu";
-import {Container, Grid, alpha} from "@mui/material";
+import {Layout, Row, Col} from "antd";
 import LocaleSwitcher from "../../../components/locale/localeSwitcher";
-import {useTheme} from "@mui/material";
 import {useEffect, useRef, useState} from "react";
 
+const {Header} = Layout;
+
 function AppAppBar() {
-  const theme = useTheme();
-
   const [width, setWidth] = useState(0);
-
   const observedDiv = useRef(null);
 
-  useEffect(
-    () => {
-      if (!observedDiv.current) {
-        return;
+  useEffect(() => {
+    if (!observedDiv.current) {
+      return;
+    }
+    const resizeObserver = new ResizeObserver(() => {
+      if (observedDiv.current.offsetWidth !== width) {
+        setWidth(observedDiv.current.offsetWidth);
       }
-      const resizeObserver = new ResizeObserver(() => {
-        if (observedDiv.current.offsetWidth !== width) {
-          setWidth(observedDiv.current.offsetWidth);
-        }
-      });
-      resizeObserver.observe(observedDiv.current);
-      return function cleanup() {
-        resizeObserver.disconnect();
-      };
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [observedDiv.current],
-  );
+    });
+    resizeObserver.observe(observedDiv.current);
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [width]);
 
   return (
-    <>
-      <AppBar
+    <Layout>
+      <Header
         ref={observedDiv}
-        enableColorOnDark
-        sx={{
-          boxShadow: 10,
-          bgcolor: theme.palette.mode == "dark" ? alpha("#0c0d0f", 0.9) : alpha("#FFFFFF", 0.7),
-          backgroundImage: "none",
-        }}
+        style={
+          {
+            // boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+          }
+        }
       >
-        <Toolbar>
-          <Container maxWidth={false} style={{padding: "0px", maxWidth: "1280px"}}>
-            <Grid
-              container
-              direction="row"
-              spacing={8}
-              sx={{display: "flex", justifyContent: "space-between"}}
-              alignItems="center"
-            >
-              <Grid item>
-                <Grid container alignItems={"center"} marginLeft={"10px"}>
-                  <Image
-                    src="/images/logo_name.png"
-                    width={180}
-                    height={70}
-                    alt="logo-deploily"
-                    style={{
-                      marginRight: "20px",
-                    }}
-                  />
-                </Grid>
-              </Grid>
-              <Grid
-                item
-                display={width < 905 ? "none" : "block"}
-                sx={{
-                  alignItems: "center",
-                }}
-              >
-                <Grid
-                  container
-                  spacing="20px"
-                  sx={{alignItems: "center"}}
-                  display={{sm: "flex", md: "flex", xs: "none"}}
-                >
-                  <Grid item>
-                    <LocaleSwitcher />
-                  </Grid>
-                </Grid>
-                <Grid display={{sm: "none", md: "none", xs: "flex"}}>
-                  <LocaleSwitcher />
-                  <Button
-                    variant="text"
-                    color="primary"
-                    aria-label="menu"
-                    sx={{minWidth: "30px", p: "0px"}}
-                  >
-                    <MenuIcon sx={{color: "white"}} />
-                  </Button>
-                </Grid>
-              </Grid>
-            </Grid>
-            {/* <ToggleColorMode color={appBarColor} /> */}
-          </Container>
-        </Toolbar>
-      </AppBar>
-    </>
+        <Row align="middle" justify="space-between">
+          <Col>
+            <Image
+              src="/images/logo_name.png"
+              width={180}
+              height={70}
+              alt="logo-deploily"
+              style={{marginRight: "20px"}}
+            />
+          </Col>
+          <Col>
+            <LocaleSwitcher />
+            {/* <ToggleColorMode /> */}
+          </Col>
+        </Row>
+      </Header>
+    </Layout>
   );
 }
 

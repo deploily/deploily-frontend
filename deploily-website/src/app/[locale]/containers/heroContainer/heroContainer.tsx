@@ -63,14 +63,14 @@ export default function HeroContainer() {
                       md: "clamp(1.25rem, 3vw, 1.5rem)",
                     },
                   }}
-                  variant="heroText"
+                  // variant="heroText"
                 >
                   {t("subtitle")}
                 </Typography>
               </Grid>
               <Grid item>
                 <Button
-                  variant="primaryBlueContainedButton"
+                  // variant="primaryBlueContainedButton"
                   sx={{
                     marginTop: {xs: "30px", md: "50px"},
                   }}

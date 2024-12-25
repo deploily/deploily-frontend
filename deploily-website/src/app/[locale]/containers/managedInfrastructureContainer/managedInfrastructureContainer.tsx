@@ -51,7 +51,7 @@ export default function ManagedInfrastructureContainer() {
               paddingTop: {xs: "20px", sm: "30px"},
               textAlign: "center",
             }}
-            variant="sectionContent"
+            // variant="sectionContent"
           >
             {t("description3")}
           </Typography>
