@@ -51,7 +51,7 @@ export default async function RootLayout({ children, params }: Props) {
   return (
     <html lang={locale}>
       <body suppressHydrationWarning={true}>
-        <GoogleAnalytics gaId="G-JFDSDGDFG" />
+        <GoogleAnalytics gaId="G-N5HBREFEE3" />
         <StoreProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <MainLayoutContent>{children}</MainLayoutContent>
