@@ -5,6 +5,7 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
+    output: "standalone",
     env: {
         WEB_SITE_URL: "https://deploily.cloud",
     },
@@ -16,7 +17,9 @@ const nextConfig = {
                 pathname: '**',
             },
         ],
-    },};
+    },
+    swcMinify: true
+};
 
 export default withNextIntl(nextConfig);
 
