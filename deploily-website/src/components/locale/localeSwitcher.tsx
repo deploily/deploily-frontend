@@ -1,43 +1,80 @@
-import {FormControl, MenuItem, Select} from "@mui/material";
 import {useLocale} from "next-intl";
-import {useTransition} from "react";
-import {locales} from "../../config";
+import {useState, useTransition} from "react";
 import {usePathname, useRouter} from "../../navigation";
+import {locales} from "../../config";
+import {Button, Col, Dropdown, Menu, Row, Typography} from "antd";
+import {Globe} from "@phosphor-icons/react";
 
-export default function LocaleSwitcher() {
+export default function LocaleSwitcher({color}) {
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
   const locale = useLocale();
+
   const router = useRouter();
   const [, startTransition] = useTransition();
   const pathname = usePathname();
 
-  const handleChange = (event: {target: {value: string}}) => {
+  const handleMenuClick = (locale) => {
     startTransition(() => {
-      router.replace(pathname, {locale: event.target.value});
+      router.replace(pathname, {locale});
     });
+    handleCloseUserMenu();
   };
 
+  const menuItems = locales.map((loc) => ({
+    key: loc,
+    label: <Typography onClick={() => handleMenuClick(loc)}>{loc.toUpperCase()}</Typography>,
+  }));
+  const [theme] = useState("dark");
+
+  const menu = (
+    <Menu
+      items={menuItems}
+      style={{
+        backgroundColor: theme === "dark" ? "#0c0d0f" : "#FFFFFF",
+        color: theme === "dark" ? "#FFFFFF" : "#0c0d0f",
+      }}
+    />
+  );
+
   return (
-    <FormControl required>
-      <Select
-        sx={{
-          width: "70px",
-          height: "40px",
-          fontSize: "14px",
-          fontWeight: 400,
-          borderRadius: "8px",
-          color: "white",
+    <>
+      <Button
+        variant="text"
+        onClick={handleOpenUserMenu}
+        style={{
+          border: "none",
+          backgroundColor: theme === "dark" ? "#0c0d0f" : "#FFFFFF",
+          color: theme === "dark" ? "#FFFFFF" : "#0c0d0f",
         }}
-        labelId="demo-simple-select-required-label"
-        id="demo-simple-select-required"
-        value={locale}
-        onChange={handleChange}
       >
-        {locales.map((loc) => (
-          <MenuItem key={loc} value={loc} sx={{color: "#001529"}}>
-            {loc.toUpperCase()}
-          </MenuItem>
-        ))}
-      </Select>
-    </FormControl>
+        <Row
+          align="middle"
+          justify="space-between"
+          style={{display: "flex", alignItems: "center", paddingLeft: "0px"}}
+        >
+          <Col>
+            <Typography color={color}>{locale.toUpperCase()}</Typography>
+          </Col>
+          <Col style={{display: "flex"}}>
+            <Globe color={color} size={20} />{" "}
+          </Col>
+        </Row>
+      </Button>
+
+      <Dropdown
+        overlay={menu}
+        trigger={["click"]}
+        open={Boolean(anchorElUser)}
+        onOpenChange={(open) => {
+          if (!open) handleCloseUserMenu();
+        }}
+      />
+    </>
   );
 }

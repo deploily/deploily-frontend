@@ -1,4 +1,4 @@
-import {Container, CssBaseline} from "@mui/material";
+import {CssBaseline} from "@mui/material";
 import AppAppBar from "./components/appBar";
 import ScrollToTopButton from "./components/scrollTopButton";
 import HeroContainer from "./containers/heroContainer/heroContainer";
@@ -15,11 +15,9 @@ export default function LandingPage() {
       <AppAppBar />
       <ScrollToTopButton></ScrollToTopButton>
       <HeroContainer />
-      <Container maxWidth={false} style={{minHeight: "100vh", padding: "0px", maxWidth: "1280px"}}>
-        <ApiServiceContainer />
-        <DeployCodeContainer />
-        <ManagedInfrastructureContainer />
-      </Container>
+      <ApiServiceContainer />
+      <DeployCodeContainer />
+      <ManagedInfrastructureContainer />
       <Footer />
     </main>
   );

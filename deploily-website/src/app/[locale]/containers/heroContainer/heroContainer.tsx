@@ -1,12 +1,12 @@
 "use client";
-import {alpha, Button, Container, Grid, Typography, useTheme} from "@mui/material";
 import React, {useEffect, useState} from "react";
 import {useTranslations} from "next-intl";
+import {Button, Col, Row, Typography} from "antd";
 import Image from "next/image";
 import {motion} from "framer-motion";
 
 export default function HeroContainer() {
-  const theme = useTheme();
+  const [theme] = useState("dark");
   const t = useTranslations("hero");
 
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -14,79 +14,75 @@ export default function HeroContainer() {
   useEffect(() => {
     setImageLoaded(true);
   }, []);
+
   return (
-    <Grid
-      sx={{
+    <Row
+      style={{
         paddingTop: "60px",
-        backgroundImage:
-          theme.palette.mode === "light"
-            ? "linear-gradient(180deg, #CEE5FD, #FFF)"
-            : `linear-gradient(transparentOrange.main, ${alpha("#090E10", 0.0)})`,
+        backgroundColor: theme === "dark" ? "#0c0d0f" : "#FFF", // Solid background color based on the theme
       }}
     >
-      <Container maxWidth={false} style={{padding: "0px", maxWidth: "1280px"}}>
-        <Grid
-          container
-          sx={{
+      <Col
+        span={24}
+        style={{
+          padding: "0px",
+          maxWidth: "1280px",
+          margin: "0 auto",
+        }}
+      >
+        <Row
+          justify="center"
+          align="middle"
+          style={{
             width: "100%",
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: {xs: "center", md: "left"},
-            padding: {xs: "20px", md: "40px"},
+            textAlign: "center",
+            padding: "20px 40px",
             marginTop: "50px",
           }}
-          direction="row"
         >
-          <Grid item xs={12} md={6}>
-            <Grid container direction="column" alignItems="center" justifyContent="center">
-              <Grid item sx={{padding: {xs: "5px", md: "10px"}}}>
-                <Typography
-                  sx={{
-                    typography: {xs: "h4", sm: "h3", md: "h2"},
-                    background: theme.palette.mode === "light" ? "#ba5814" : "#dce9f5",
+          <Col xs={24} md={12}>
+            <Row justify="center" align="middle">
+              <Col style={{padding: "5px"}}>
+                <Typography.Title
+                  style={{
+                    fontSize: "clamp(1.5rem, 5vw, 2.5rem)",
+                    background: theme === "light" ? "#ba5814" : "#dce9f5",
                     backgroundClip: "text",
-                    color: "transparent",
-                    marginBottom: {xs: "20px", md: "30px"},
-                    padding: {xs: "3px", md: "5px"},
+                    marginBottom: "30px",
+                    padding: "5px",
+                    color: "#ccdae6",
                   }}
                 >
                   {t("title")}
-                </Typography>
-                <Typography
-                  width="90%"
-                  sx={{
-                    paddingTop: {xs: "20px", sm: "30px"},
+                </Typography.Title>
+                <Typography.Text
+                  style={{
+                    width: "90%",
+                    paddingTop: "20px",
                     textAlign: "start",
-                    fontSize: {
-                      xs: "clamp(0.75rem, 3vw, 1rem)",
-                      sm: "clamp(1rem, 3vw, 1.25rem)",
-                      md: "clamp(1.25rem, 3vw, 1.5rem)",
-                    },
+                    fontSize: "clamp(1rem, 3vw, 1.25rem)",
+                    color: "#ccdae6",
                   }}
-                  // variant="heroText"
                 >
                   {t("subtitle")}
-                </Typography>
-              </Grid>
-              <Grid item>
+                </Typography.Text>
+              </Col>
+              <Col>
                 <Button
-                  // variant="primaryBlueContainedButton"
-                  sx={{
-                    marginTop: {xs: "30px", md: "50px"},
+                  type="primary"
+                  style={{
+                    marginTop: "50px",
+                    color: "#FFF",
+                    backgroundColor: theme === "dark" ? "#4c96d7" : "#333",
+                    boxShadow: "none",
                   }}
                 >
                   {t("buttonHero")}
                 </Button>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={5}
-            sx={{justifyContent: "center", display: "flex"}}
-            width={{md: "50%", sm: "100%"}}
-          >
+              </Col>
+            </Row>
+          </Col>
+          <Col xs={24} md={10} style={{display: "flex", justifyContent: "center", width: "100%"}}>
             <motion.div
               initial={{opacity: 0, scale: 0.9}}
               animate={{
@@ -94,9 +90,9 @@ export default function HeroContainer() {
                 scale: imageLoaded ? 1 : 0.9,
               }}
               transition={{duration: 0.5}}
-              style={{width: "90%", height: "auto"}}
               whileHover={{scale: 1.1, rotate: 3}}
               whileTap={{scale: 0.8}}
+              style={{width: "90%", height: "auto"}}
             >
               <Image
                 src="/images/deploy_image.png"
@@ -107,9 +103,9 @@ export default function HeroContainer() {
                 alt="deploy"
               />
             </motion.div>
-          </Grid>
-        </Grid>
-      </Container>
-    </Grid>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
   );
 }
