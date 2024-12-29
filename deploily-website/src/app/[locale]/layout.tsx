@@ -55,12 +55,12 @@ export default async function RootLayout({children, params}: Props) {
 
   return (
     <html lang={locale}>
-      <body suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true} style={{margin:"0px"}}>
         <GoogleAnalytics gaId="G-JFDSDGDFG" />
         <StoreProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <AntdRegistry>
-              <ConfigProvider theme={theme}>{children}</ConfigProvider>
+              <ConfigProvider  theme={theme} >{children}</ConfigProvider>
             </AntdRegistry>
           </NextIntlClientProvider>
         </StoreProvider>
