@@ -1,6 +1,5 @@
 "use client";
 import React, {useState} from "react";
-import {useTranslations} from "next-intl";
 import {Col, Row, Typography} from "antd";
 
 export default function ManagedInfrastructureContainer() {

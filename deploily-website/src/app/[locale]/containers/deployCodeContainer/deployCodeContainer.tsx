@@ -1,11 +1,10 @@
 "use client";
 import React, {useState} from "react";
-import {useTranslations} from "next-intl";
 import {Col, Row, Typography} from "antd";
+import {useScopedI18n} from "../../../../../locales/clients";
 export default function DeployCodeContainer() {
-  const t = useTranslations("service");
   const [theme] = useState("dark");
-
+  const scopedService = useScopedI18n("service");
   return (
     <Row
       justify="center"
@@ -38,7 +37,7 @@ export default function DeployCodeContainer() {
               padding: "5px",
             }}
           >
-            {t("title2")}
+            {scopedService("title2")}
           </Typography.Title>
         </div>
 
@@ -57,7 +56,7 @@ export default function DeployCodeContainer() {
               textAlign: "center",
             }}
           >
-            {t("description2")}
+            {scopedService("description2")}
           </Typography.Paragraph>
         </div>
       </Col>

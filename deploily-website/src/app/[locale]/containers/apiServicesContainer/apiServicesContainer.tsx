@@ -1,11 +1,11 @@
 "use client";
 import React, {useState} from "react";
-import {useTranslations} from "next-intl";
 import {Col, Row, Typography} from "antd";
+import {useI18n} from "../../../../../locales/clients";
 
 export default function ApiServiceContainer() {
   const [theme] = useState("dark");
-  const t = useTranslations("service");
+  const t = useI18n();
 
   return (
     <Row
@@ -39,7 +39,8 @@ export default function ApiServiceContainer() {
               padding: "5px",
             }}
           >
-            {t("title1")}
+            {/* {t("title1")} */}
+            <Typography.Title>{t("title1")}</Typography.Title>
           </Typography.Title>
         </div>
 

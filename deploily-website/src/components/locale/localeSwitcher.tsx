@@ -1,9 +1,9 @@
-import {useLocale} from "next-intl";
 import {useState, useTransition} from "react";
 import {usePathname, useRouter} from "../../navigation";
 import {locales} from "../../config";
 import {Button, Col, Dropdown, Menu, Row, Typography} from "antd";
 import {Globe} from "@phosphor-icons/react";
+import {useChangeLocale} from "../../../locales/clients";
 
 export default function LocaleSwitcher({color}) {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -13,7 +13,7 @@ export default function LocaleSwitcher({color}) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const locale = useLocale();
+  const locale = useChangeLocale(/* { preserveSearchParams: true } */);
 
   const router = useRouter();
   const [, startTransition] = useTransition();
@@ -59,7 +59,7 @@ export default function LocaleSwitcher({color}) {
           style={{display: "flex", alignItems: "center", paddingLeft: "0px"}}
         >
           <Col>
-            <Typography color={color}>{locale.toUpperCase()}</Typography>
+            <Typography color={color}>{locale}</Typography>
           </Col>
           <Col style={{display: "flex"}}>
             <Globe color={color} size={20} />{" "}

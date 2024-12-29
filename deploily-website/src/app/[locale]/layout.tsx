@@ -1,13 +1,11 @@
-import React, {ReactNode} from "react";
-import {NextIntlClientProvider} from "next-intl";
-import {locales} from "../../config";
-import StoreProvider from "../storeProvider";
-import {getMessages} from "next-intl/server";
+import React from "react";
 import {GoogleAnalytics} from "@next/third-parties/google";
 import type {Metadata} from "next";
 import {AntdRegistry} from "@ant-design/nextjs-registry";
 import {ConfigProvider} from "antd";
 import {theme} from "../../styles/theme";
+import {I18nProviderClient} from "../../../locales/clients";
+import "antd/dist/reset.css";
 
 export const generateViewport = () => ({
   width: "device-width",
@@ -38,32 +36,19 @@ export const metadata: Metadata = {
   },
 };
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({locale}));
-}
-
-type Props = {
-  children: ReactNode;
-  params: Promise<{locale: string}>;
-};
-
-export default async function RootLayout({children, params}: Props) {
+export default async function RootLayout({params, children}) {
   // Resolve the params Promise to access the locale
   const {locale} = await params;
 
-  const messages = await getMessages();
-
   return (
     <html lang={locale}>
-      <body suppressHydrationWarning={true} style={{margin:"0px"}}>
+      <body suppressHydrationWarning={true} style={{margin: "0px"}}>
         <GoogleAnalytics gaId="G-JFDSDGDFG" />
-        <StoreProvider>
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            <AntdRegistry>
-              <ConfigProvider  theme={theme} >{children}</ConfigProvider>
-            </AntdRegistry>
-          </NextIntlClientProvider>
-        </StoreProvider>
+        <I18nProviderClient locale={locale}>
+          <AntdRegistry>
+            <ConfigProvider theme={theme}>{children}</ConfigProvider>
+          </AntdRegistry>
+        </I18nProviderClient>
       </body>
     </html>
   );

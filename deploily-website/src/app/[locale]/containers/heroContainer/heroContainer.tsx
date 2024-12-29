@@ -1,13 +1,11 @@
 "use client";
 import React, {useEffect, useState} from "react";
-import {useTranslations} from "next-intl";
 import {Button, Col, Row, Typography} from "antd";
 import Image from "next/image";
 import {motion} from "framer-motion";
 
 export default function HeroContainer() {
   const [theme] = useState("dark");
-  const t = useTranslations("hero");
 
   const [imageLoaded, setImageLoaded] = useState(false);
 
