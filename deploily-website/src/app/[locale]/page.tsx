@@ -1,4 +1,3 @@
-import {CssBaseline} from "@mui/material";
 import AppAppBar from "./components/appBar";
 import ScrollToTopButton from "./components/scrollTopButton";
 import HeroContainer from "./containers/heroContainer/heroContainer";
@@ -11,7 +10,6 @@ import Footer from "./components/footer";
 export default function LandingPage() {
   return (
     <main>
-      <CssBaseline />
       <AppAppBar />
       <ScrollToTopButton></ScrollToTopButton>
       <HeroContainer />

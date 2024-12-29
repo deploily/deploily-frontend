@@ -1,7 +1,7 @@
 "use client";
 import {useState, useEffect} from "react";
 import {CSSProperties} from "react";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import {ArrowUp} from "@phosphor-icons/react";
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -52,7 +52,7 @@ const ScrollToTopButton = () => {
 
   return (
     <div style={buttonStyle as CSSProperties} onClick={scrollToTop}>
-      <ArrowUpwardIcon style={{fontSize: "24px"}} />
+      <ArrowUp style={{fontSize: "24px"}} />
     </div>
   );
 };
