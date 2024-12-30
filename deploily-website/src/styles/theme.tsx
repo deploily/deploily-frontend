@@ -10,17 +10,16 @@ export const theme = {
     colorWarning: "#fadb14",
     colorError: "#f40e11",
     colorLink: "#63a9ea",
-    colorTextBase: "#ccdae6",
-    colorBgBase: "#000000",
+    colorTextBase: "#dce9f5",
+    colorBgBase: "#0c0d0f",
     fontSize: 14,
-    colorDark: "#001529",
     colorWhite: "#ffff",
   },
   components: {
     Button: {
-      colorPrimary: primaryColor,
-      buttonBgHoverPrimary: "#333333",
-      algorithm: true,
+      borderColorDisabled: "rgb(76,150,215)",
+      defaultActiveBorderColor: "rgb(76,150,215)",
+      colorText: "rgba(0,0,0,0)",
     },
     Input: {
       colorPrimary: "#eb2f96",

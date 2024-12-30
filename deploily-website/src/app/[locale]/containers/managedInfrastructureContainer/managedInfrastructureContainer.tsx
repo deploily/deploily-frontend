@@ -1,18 +1,21 @@
 "use client";
-import React, {useState} from "react";
-import {Col, Row, Typography} from "antd";
+import React from "react";
+import {Col, Row, theme, Typography} from "antd";
 import {useScopedI18n} from "../../../../../locales/client";
 
 export default function ManagedInfrastructureContainer() {
+  const {useToken} = theme;
+  const {token} = useToken();
+
   const scopedService = useScopedI18n("service");
-  const [theme] = useState("dark");
+  // const [theme] = useState("dark");
 
   return (
     <Row
       justify="center"
       style={{
         paddingTop: "60px",
-        backgroundColor: theme === "dark" ? "#0c0d0f" : "#FFF",
+        backgroundColor: token.colorBgBase,
       }}
     >
       <Col
@@ -32,7 +35,7 @@ export default function ManagedInfrastructureContainer() {
           <Typography.Title
             style={{
               fontSize: "48px",
-              background: theme === "light" ? "#ba5814" : "#dce9f5",
+              background: token.colorTextBase,
               backgroundClip: "text",
               color: "transparent",
               marginBottom: "30px",

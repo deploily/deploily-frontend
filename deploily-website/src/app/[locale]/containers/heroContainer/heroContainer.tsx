@@ -1,12 +1,15 @@
 "use client";
 import React, {useEffect, useState} from "react";
-import {Button, Col, Row, Typography} from "antd";
+import {Button, Col, Row, theme, Typography} from "antd";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import {useScopedI18n} from "../../../../../locales/client";
 
 export default function HeroContainer() {
-  const [theme] = useState("dark");
+  const {useToken} = theme;
+  const {token} = useToken();
+
+  // const [theme] = useState("dark");
   const scopedHero = useScopedI18n("hero");
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -18,7 +21,7 @@ export default function HeroContainer() {
     <Row
       style={{
         paddingTop: "60px",
-        backgroundColor: theme === "dark" ? "#0c0d0f" : "#FFF",
+        backgroundColor: token.colorBgBase,
       }}
     >
       <Col
@@ -45,7 +48,7 @@ export default function HeroContainer() {
                 <Typography.Title
                   style={{
                     fontSize: "clamp(1.5rem, 5vw, 2.5rem)",
-                    background: theme === "light" ? "#ba5814" : "#dce9f5",
+                    background: token.colorTextBase,
                     backgroundClip: "text",
                     marginBottom: "30px",
                     padding: "5px",
@@ -72,7 +75,7 @@ export default function HeroContainer() {
                   style={{
                     marginTop: "50px",
                     color: "#FFF",
-                    backgroundColor: theme === "dark" ? "#4c96d7" : "#333",
+                    backgroundColor: "#4c96d7",
                     boxShadow: "none",
                   }}
                 >
