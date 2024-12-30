@@ -3,10 +3,11 @@ import React, {useEffect, useState} from "react";
 import {Button, Col, Row, Typography} from "antd";
 import Image from "next/image";
 import {motion} from "framer-motion";
+import {useScopedI18n} from "../../../../../locales/client";
 
 export default function HeroContainer() {
   const [theme] = useState("dark");
-
+  const scopedHero = useScopedI18n("hero");
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function HeroContainer() {
     <Row
       style={{
         paddingTop: "60px",
-        backgroundColor: theme === "dark" ? "#0c0d0f" : "#FFF", // Solid background color based on the theme
+        backgroundColor: theme === "dark" ? "#0c0d0f" : "#FFF",
       }}
     >
       <Col
@@ -51,7 +52,7 @@ export default function HeroContainer() {
                     color: "#ccdae6",
                   }}
                 >
-                  {t("title")}
+                  {scopedHero("title")}
                 </Typography.Title>
                 <Typography.Text
                   style={{
@@ -62,7 +63,7 @@ export default function HeroContainer() {
                     color: "#ccdae6",
                   }}
                 >
-                  {t("subtitle")}
+                  {scopedHero("subtitle")}
                 </Typography.Text>
               </Col>
               <Col>
@@ -75,7 +76,7 @@ export default function HeroContainer() {
                     boxShadow: "none",
                   }}
                 >
-                  {t("buttonHero")}
+                  {scopedHero("buttonHero")}
                 </Button>
               </Col>
             </Row>

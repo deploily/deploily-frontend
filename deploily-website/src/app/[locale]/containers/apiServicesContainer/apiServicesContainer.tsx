@@ -1,11 +1,11 @@
 "use client";
 import React, {useState} from "react";
 import {Col, Row, Typography} from "antd";
-import {useI18n} from "../../../../../locales/clients";
+import {useScopedI18n} from "../../../../../locales/client";
 
 export default function ApiServiceContainer() {
   const [theme] = useState("dark");
-  const t = useI18n();
+  const scopedService = useScopedI18n("service");
 
   return (
     <Row
@@ -39,8 +39,7 @@ export default function ApiServiceContainer() {
               padding: "5px",
             }}
           >
-            {/* {t("title1")} */}
-            <Typography.Title>{t("title1")}</Typography.Title>
+            {scopedService("title1")}
           </Typography.Title>
         </div>
 
@@ -59,7 +58,7 @@ export default function ApiServiceContainer() {
               textAlign: "center",
             }}
           >
-            {t("description1")}
+            {scopedService("description1")}
           </Typography.Paragraph>
         </div>
       </Col>

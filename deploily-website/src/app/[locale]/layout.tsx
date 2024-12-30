@@ -1,10 +1,10 @@
-import React from "react";
+import React, {ReactElement} from "react";
 import {GoogleAnalytics} from "@next/third-parties/google";
 import type {Metadata} from "next";
 import {AntdRegistry} from "@ant-design/nextjs-registry";
 import {ConfigProvider} from "antd";
 import {theme} from "../../styles/theme";
-import {I18nProviderClient} from "../../../locales/clients";
+import {I18nProviderClient} from "../../../locales/client";
 import "antd/dist/reset.css";
 
 export const generateViewport = () => ({
@@ -36,7 +36,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({params, children}) {
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: ReactElement;
+  params: Promise<{locale: string}>;
+}) {
   // Resolve the params Promise to access the locale
   const {locale} = await params;
 

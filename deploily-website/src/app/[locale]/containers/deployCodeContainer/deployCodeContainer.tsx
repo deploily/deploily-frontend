@@ -1,7 +1,7 @@
 "use client";
 import React, {useState} from "react";
 import {Col, Row, Typography} from "antd";
-import {useScopedI18n} from "../../../../../locales/clients";
+import {useScopedI18n} from "../../../../../locales/client";
 export default function DeployCodeContainer() {
   const [theme] = useState("dark");
   const scopedService = useScopedI18n("service");

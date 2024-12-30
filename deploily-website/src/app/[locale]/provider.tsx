@@ -1,7 +1,7 @@
 "use client";
 
 import type {ReactNode} from "react";
-import {I18nProviderClient} from "../../../locales/clients";
+import {I18nProviderClient} from "../../../locales/client";
 
 type ProviderProps = {
   locale: string;

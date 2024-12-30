@@ -1,9 +1,10 @@
 "use client";
 import React, {useState} from "react";
 import {Col, Row, Typography} from "antd";
+import {useScopedI18n} from "../../../../../locales/client";
 
 export default function ManagedInfrastructureContainer() {
-  const t = useTranslations("service");
+  const scopedService = useScopedI18n("service");
   const [theme] = useState("dark");
 
   return (
@@ -38,7 +39,7 @@ export default function ManagedInfrastructureContainer() {
               padding: "5px",
             }}
           >
-            {t("title3")}
+            {scopedService("title3")}
           </Typography.Title>
         </div>
 
@@ -57,7 +58,7 @@ export default function ManagedInfrastructureContainer() {
               textAlign: "center",
             }}
           >
-            {t("description3")}
+            {scopedService("description3")}
           </Typography.Paragraph>
         </div>
       </Col>
