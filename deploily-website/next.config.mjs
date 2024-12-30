@@ -2,6 +2,7 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    transpilePackages: ['next-international', 'international-types'],
     reactStrictMode: true,
     env: {
         WEB_SITE_URL: "https://deploily.cloud",

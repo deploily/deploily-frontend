@@ -1,10 +1,10 @@
 "use client";
 import * as React from "react";
 import Image from "next/image";
-import LocaleSwitcher from "../../../components/locale/localeSwitcher";
 import {useEffect, useRef, useState} from "react";
 import {Col, Row} from "antd";
 import Layout, {Header} from "antd/es/layout/layout";
+import LocaleSwitcher from "@/components/locale/localeSwitcher";
 
 function AppAppBar() {
   const [width, setWidth] = useState(0);
@@ -16,8 +16,8 @@ function AppAppBar() {
       return;
     }
     const resizeObserver = new ResizeObserver(() => {
-      if (observedDiv.current.offsetWidth !== width) {
-        setWidth(observedDiv.current.offsetWidth);
+      if (observedDiv.current != null && observedDiv.current["offsetWidth"] !== width) {
+        setWidth(observedDiv.current["offsetWidth"]);
       }
     });
     resizeObserver.observe(observedDiv.current);
