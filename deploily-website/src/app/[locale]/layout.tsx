@@ -1,11 +1,11 @@
-import React, { ReactNode } from "react";
-import { NextIntlClientProvider } from "next-intl";
-import { locales } from "../../config";
-import StoreProvider from "../storeProvider";
-import MainLayoutContent from "../mainLayoutContent";
-import { getMessages } from "next-intl/server";
-import { GoogleAnalytics } from '@next/third-parties/google'
-import type { Metadata } from 'next'
+import React, { ReactElement } from "react";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import type { Metadata } from "next";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { ConfigProvider } from "antd";
+import { theme } from "../../styles/theme";
+import { I18nProviderClient } from "../../../locales/client";
+import "antd/dist/reset.css";
 
 export const generateViewport = () => ({
   width: "device-width",
@@ -17,7 +17,8 @@ export const metadata: Metadata = {
   description: `Open-source cloud proxy solution, 
                 offers local alternatives to foreign APIs,
                 and ensures compliance with Algerian data protection regulations.`,
-  keywords: "Cloud Proxy Solution, Application Deployment, Open Source Platform, Algerian Data Protection, Local Cloud Hosting, Local API Alternatives",
+  keywords:
+    "Cloud Proxy Solution, Application Deployment, Open Source Platform, Algerian Data Protection, Local Cloud Hosting, Local API Alternatives",
   openGraph: {
     type: "website",
     url: "https://deploily.cloud",
@@ -26,37 +27,34 @@ export const metadata: Metadata = {
     description: `Open-source cloud proxy solution,
                   offers local alternatives to foreign APIs,
                   and ensures compliance with Algerian data protection regulations.`,
-    images: [{
-      url: "https://deploily.cloud/_next/image?url=%2Fimages%2Flogo_name.png&w=256&q=75",
-    }],
-    locale: "en_US"
+    images: [
+      {
+        url: "https://deploily.cloud/_next/image?url=%2Fimages%2Flogo_name.png&w=256&q=75",
+      },
+    ],
+    locale: "en_US",
   },
 };
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
-
-type Props = {
-  children: ReactNode;
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: ReactElement;
   params: Promise<{ locale: string }>;
-};
-
-export default async function RootLayout({ children, params }: Props) {
+}) {
   // Resolve the params Promise to access the locale
   const { locale } = await params;
 
-  const messages = await getMessages();
-
   return (
     <html lang={locale}>
-      <body suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true} style={{ margin: "0px" }}>
         <GoogleAnalytics gaId="G-N5HBREFEE3" />
-        <StoreProvider>
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            <MainLayoutContent>{children}</MainLayoutContent>
-          </NextIntlClientProvider>
-        </StoreProvider>
+        <I18nProviderClient locale={locale}>
+          <AntdRegistry>
+            <ConfigProvider theme={theme}>{children}</ConfigProvider>
+          </AntdRegistry>
+        </I18nProviderClient>
       </body>
     </html>
   );

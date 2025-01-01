@@ -1,9 +1,8 @@
-import createNextIntlPlugin from 'next-intl/plugin';
 
-const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    transpilePackages: ['next-international', 'international-types'],
     reactStrictMode: true,
     output: "standalone",
     env: {
@@ -21,5 +20,5 @@ const nextConfig = {
     swcMinify: true
 };
 
-export default withNextIntl(nextConfig);
+export default nextConfig
 

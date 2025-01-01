@@ -1,10 +1,10 @@
-import createIntlMiddleware from "next-intl/middleware";
-import { NextRequest } from "next/server";
-import { locales, pathnames, localePrefix } from "./config";
-import { routing } from "./i18n/routing";
-import createMiddleware from "next-intl/middleware";
+import {createI18nMiddleware} from "next-international/middleware";
+import {NextRequest} from "next/server";
 
-export default createMiddleware(routing);
+const I18nMiddleware = createI18nMiddleware({
+  locales: ["en", "fr"],
+  defaultLocale: "en",
+});
 
 // export default async function middleware(request: NextRequest) {
 //   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
@@ -60,9 +60,11 @@ export default createMiddleware(routing);
 //   response.headers.set("X-XSS-Protection", "  1; mode=block");
 //   return response;
 // }
+export function middleware(request: NextRequest) {
+  return I18nMiddleware(request);
+}
 
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', '/(de|en)/:path*']
-
+  matcher: ["/((?!api|static|.*\\..*|_next|favicon.ico|robots.txt).*)"],
 };

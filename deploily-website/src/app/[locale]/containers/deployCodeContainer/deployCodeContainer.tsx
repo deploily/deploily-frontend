@@ -1,61 +1,68 @@
-"use client"
-import { alpha, Grid, Typography, useTheme } from "@mui/material";
+"use client";
 import React from "react";
-import { useTranslations } from "next-intl";
+import {Col, Row, theme, Typography} from "antd";
+import {useScopedI18n} from "../../../../../locales/client";
 export default function DeployCodeContainer() {
-    const theme = useTheme();
-    const t = useTranslations("service");
+  const {useToken} = theme;
+  const {token} = useToken();
 
-    return (
-        <Grid sx={{
-            paddingTop: "60px",
-            backgroundImage:
-                theme.palette.mode === 'light'
-                    ? 'linear-gradient(180deg, #CEE5FD, #FFF)'
-                    : `linear-gradient(transparentOrange.main, ${alpha('#090E10', 0.0)})`,
-        }}>
+  // const [theme] = useState("dark");
+  const scopedService = useScopedI18n("service");
+  return (
+    <Row
+      justify="center"
+      style={{
+        paddingTop: "60px",
+        backgroundColor: token.colorBgBase,
+      }}
+    >
+      <Col
+        style={{
+          width: "100%",
+          maxWidth: "1280px",
+          textAlign: "center",
+          padding: "40px",
+          marginTop: "50px",
+        }}
+      >
+        <div
+          style={{
+            padding: "10px",
+          }}
+        >
+          <Typography.Title
+            style={{
+              fontSize: "48px",
+              background: token.colorTextBase,
+              backgroundClip: "text",
+              color: "transparent",
+              marginBottom: "30px",
+              padding: "5px",
+            }}
+          >
+            {scopedService("title2")}
+          </Typography.Title>
+        </div>
 
-                <Grid
-                    container
-                    sx={{
-                        width: '100%',
-                        alignItems: "center", justifyContent: "center",
-                        padding: { xs: "20px", md: "40px" },
-                        marginTop: "50px"
-                    }}
-                    direction="column"
-                >
-                    <Grid item sx={{ padding: { xs: "5px", md: "10px" } }}>
-                        <Typography
-                            sx={{
-                                justifyContent: "center",
-                                typography: { xs: 'h4', sm: 'h3', md: 'h2' },
-                                background: theme.palette.mode === 'light' ? "#ba5814"
-                                    : "#dce9f5",
-                                backgroundClip: 'text',
-                                color: 'transparent',
-                                marginBottom: { xs: "20px", md: "30px" },
-                                padding: { xs: "3px", md: "5px" }
-                            }}
-                        >
-                        {t("title2")}
-                        </Typography>
-                    </Grid>
-
-                    <Grid item sx={{ padding: { xs: "5px", md: "10px" } }}>
-
-                        <Typography
-                            width="90%"
-                            sx={{
-                                paddingTop: { xs: "20px", sm: "30px" },
-                                textAlign: "center",
-                            }}
-                            variant="sectionContent"
-                        >
-                        {t("description2")}
-                        </Typography>
-                    </Grid>
-                </Grid>
-        </Grid >
-    );
+        <div
+          style={{
+            padding: "10px",
+          }}
+        >
+          <Typography.Paragraph
+            style={{
+              color: "white",
+              fontSize: "18px",
+              width: "90%",
+              paddingTop: "20px",
+              margin: "0 auto",
+              textAlign: "center",
+            }}
+          >
+            {scopedService("description2")}
+          </Typography.Paragraph>
+        </div>
+      </Col>
+    </Row>
+  );
 }

@@ -1,123 +1,78 @@
-"use client"
-import * as React from 'react';
+"use client";
+import * as React from "react";
 import Image from "next/image";
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Container, Grid, Link, Typography, alpha, } from '@mui/material';
-import LocaleSwitcher from '../../../components/locale/localeSwitcher';
-import { useTheme } from "@mui/material";
-import ToggleColorMode from './toogleColorMode';
-import { useEffect, useRef, useState } from 'react';
+import {useEffect, useRef, useState} from "react";
+import {Col, Row} from "antd";
+import Layout, {Header} from "antd/es/layout/layout";
+import LocaleSwitcher from "@/components/locale/localeSwitcher";
 
 function AppAppBar() {
+  const [width, setWidth] = useState(0);
 
-    const [open, setOpen] = React.useState(false);
-    const toggleDrawer = (newOpen: boolean) => () => {
-        setOpen(newOpen);
+  const observedDiv = useRef(null);
+
+  useEffect(() => {
+    if (!observedDiv.current) {
+      return;
+    }
+    const resizeObserver = new ResizeObserver(() => {
+      if (observedDiv.current != null && observedDiv.current["offsetWidth"] !== width) {
+        setWidth(observedDiv.current["offsetWidth"]);
+      }
+    });
+    resizeObserver.observe(observedDiv.current);
+    return function cleanup() {
+      resizeObserver.disconnect();
     };
+  }, [observedDiv.current]);
+  const [theme] = useState("dark");
 
-    const scrollToSection = (sectionId: string) => {
-        const sectionElement = document.getElementById(sectionId);
-        const offset = 128;
-        if (sectionElement) {
-            const targetScroll = sectionElement.offsetTop - offset;
-            sectionElement.scrollIntoView({ behavior: 'smooth' });
-            window.scrollTo({
-                top: targetScroll,
-                behavior: 'smooth',
-            });
-            setOpen(false);
-        }
-    };
-    const theme = useTheme();
+  const appBarColor = theme == "dark" ? "#2c82d4" : "#eda879";
 
-    const [width, setWidth] = useState(0);
-
-    const observedDiv = useRef(null);
-
-    useEffect(() => {
-        if (!observedDiv.current) {
-            return;
-        }
-        const resizeObserver = new ResizeObserver(() => {
-            if (observedDiv.current.offsetWidth !== width) {
-                setWidth(observedDiv.current.offsetWidth);
-            }
-        });
-        resizeObserver.observe(observedDiv.current);
-        return function cleanup() {
-            resizeObserver.disconnect();
-        }
-    },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [observedDiv.current])
-
-    const appBarColor =
-        theme.palette.mode == "dark" ? theme.palette.primary.main : theme.palette.secondary.main;
-
-
-    return (
-        <>
-            <AppBar
-                ref={observedDiv}
-                enableColorOnDark
-                sx={{
-                    boxShadow: 10,
-                    bgcolor: theme.palette.mode == "dark" ? alpha("#0c0d0f", 0.9) : alpha("#FFFFFF", 0.7),
-                    backgroundImage: 'none',
-                }}
-            >
-                <Toolbar>
-                    <Container maxWidth={false} style={{ padding: "0px", maxWidth: "1280px" }} >
-
-                        <Grid container direction="row" spacing={8} sx={{ display: "flex", justifyContent: "space-between", }} alignItems="center" >
-                            <Grid item>
-                                <Grid container alignItems={"center"} marginLeft={"10px"} >
-                                    <Image
-                                        src="/images/logo_name.png"
-                                        width={180}
-                                        height={70}
-                                        alt="logo-deploily"
-                                        style={{
-                                            marginRight: "20px"
-                                        }}
-                                    />
-
-                                </Grid>
-                            </Grid>
-                            <Grid item
-                                display={width < 905 ? "none" : 'block'}
-                                sx={{
-                                    alignItems: "center",
-                                }}>
-                                <Grid container spacing="20px" sx={{ alignItems: "center" }} display={{ sm: "flex", md: "flex", xs: "none" }}>
-                                    <Grid item >
-                                        <LocaleSwitcher color={appBarColor} />
-                                    </Grid>
-                                </Grid>
-                                <Grid display={{ sm: "none", md: "none", xs: "flex" }}>
-                                    <LocaleSwitcher color={appBarColor} />
-                                    <Button
-                                        variant="text"
-                                        color="primary"
-                                        aria-label="menu"
-                                        onClick={toggleDrawer(true)}
-                                        sx={{ minWidth: '30px', p: '0px' }}
-                                    >
-                                        <MenuIcon sx={{ color: 'white' }} />
-                                    </Button>
-
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        {/* <ToggleColorMode color={appBarColor} /> */}
-                    </Container>
-                </Toolbar>
-            </AppBar>
-        </>
-    );
+  return (
+    <>
+      <Layout style={{}}>
+        <Header
+          ref={observedDiv}
+          style={{
+            backgroundColor: theme === "dark" ? "#0c0d0f" : "#FFFFFF",
+            backgroundImage: "none",
+            display: "flex",
+            justifyContent: "center",
+            lineHeight: "0px",
+            height: "70px",
+            boxShadow:
+              theme === "dark" ? "0 4px 8px rgba(0, 0, 0, 0.5)" : "0 4px 8px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: "1280px",
+              width: "100%",
+              justifyContent: "space-between",
+            }}
+          >
+            <Row align="middle" justify="space-between" style={{width: "100%"}}>
+              <Col>
+                <Image
+                  src="/images/logo_name.png"
+                  width={180}
+                  height={70}
+                  alt="logo-deploily"
+                  style={{
+                    marginRight: "20px",
+                  }}
+                />
+              </Col>
+              <Col style={{display: "flex", alignItems: "start", height: "50%"}}>
+                <LocaleSwitcher color={appBarColor} />
+              </Col>
+            </Row>
+          </div>
+        </Header>
+      </Layout>
+    </>
+  );
 }
 
 export default AppAppBar;

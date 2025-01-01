@@ -1,72 +1,80 @@
-'use client'
+"use client";
 import Image from "next/image";
-import { Box, Container, Grid, Link, Stack, Typography, useTheme } from "@mui/material";
-import { socialMedias } from "./utils/about";
+import {socialMedias} from "./utils/about";
+import {useState} from "react";
+import {Col, Row, Typography} from "antd";
+import {Content} from "antd/es/layout/layout";
+import Link from "next/link";
 
 function Copyright() {
-    return (
-        <Typography variant="body2"  >
-            {'Copyright ©  '}
-            {new Date().getFullYear()}
-            {' '}
-            <Link color="inherit" rel="noopener" target="blank" href={"https://transformatek.dz"}>
-                SARL Transformatek
-            </Link>
-            {'.'}
-        </Typography>
-    );
+  return (
+    <Typography>
+      {"Copyright ©  "}
+      {new Date().getFullYear()}
+      {" "}
+      <Link color="inherit" rel="noopener" target="blank" href={"https://transformatek.dz"}>
+        SARL Transformatek
+      </Link>
+      {"."}
+    </Typography>
+  );
 }
 
 export default function Footer() {
+  const [theme] = useState("dark");
 
-    const theme = useTheme();
-
-    return (
-        <>
-            <Grid id="footer" container
-                direction="row"
-                justifyContent="space-evenly"
-                alignItems="flex-start"
-                margin={'0px'}
-                sx={{
-                    width: "100%",
-                    background: theme.palette.primary.dark,
-                    ...(theme.palette.mode === 'dark' && {
-                        background: `${theme.palette["grey"][1000]}`,
-                    })
-                }}>
-
-                <Stack direction="row" spacing={2} sx={{ alignItems: 'flex-start' }}>
-
-                    {socialMedias.map((socialM, index) => (
-                        <Grid key={index} item >
-                            <a href={socialM.link} target="_blank" rel="noopener noreferrer" style={{ margin: "2px", paddingBottom: "0px", color: "white" }}>
-                                <Box
-                                    key={index}
-                                    sx={{ py: 1, display: 'flex', gap: 1.5, alignItems: 'center' }}
-                                >   <Image src={socialM.image} width={30} height={30} alt={socialM.alt} />
-                                    <Typography
-                                        variant="subtitle2"
-                                        component={'span'}
-                                    >
-                                        {socialM.alt}
-                                    </Typography>
-                                </Box>
-                            </a>
-                        </Grid>
-                    ))}
-                </Stack>
-            </Grid>
-            <Container maxWidth={false} style={{ background: theme.palette.primary.main }} >
-                <Grid container direction="row"
-                    justifyContent="space-around"
-                    alignItems="center"
-                    paddingY={'10px'}>
-                    <Copyright />
-                </Grid>
-            </Container>
-
-        </>
-    )
+  return (
+    <>
+      <Row
+        id="footer"
+        style={{
+          justifyContent: "space-evenly",
+          alignItems: "flex-start",
+          margin: "0px",
+          width: "100%",
+          backgroundColor: theme === "dark" ? "#0c0d0f" : "#FFFFFF",
+        }}
+      >
+        {socialMedias.map((socialM, index) => (
+          <Col key={index}>
+            <a
+              href={socialM.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{margin: "2px", paddingBottom: "0px", color: "white"}}
+            >
+              <Row
+                key={index}
+                style={{
+                  display: "flex",
+                  gap: 1.5,
+                  alignItems: "center",
+                }}
+              >
+                <Image src={socialM.image} width={30} height={30} alt={socialM.alt} />{" "}
+                <Typography.Title
+                  level={5}
+                  underline
+                  style={{margin: 0, padding: 1, color: "white"}}
+                >
+                  {socialM.alt}
+                </Typography.Title>
+              </Row>
+            </a>
+          </Col>
+        ))}
+      </Row>
+      <Content style={{background: "#2c82d4"}}>
+        <Row
+          style={{
+            justifyContent: "space-around",
+            alignItems: "center",
+            padding: "10px",
+          }}
+        >
+          <Copyright />
+        </Row>
+      </Content>
+    </>
+  );
 }
-
