@@ -1,7 +1,7 @@
 export default {
   'platformName': 'Deploily',
-  'hero.title': 'Du développement au déploiement—En toute simplicité.',
-  'hero.subtitle': "Déployez vos projets en toute simplicité, aucune compétence DevOps n'est requise. Nous proposons des API gratuites et une infrastructure de déploiement puissante pour vous simplifier la vie. Concentrez-vous sur ce que vous faites de mieux pendant que nous nous occupons du déploiement pour vous.",
+  'hero.title': 'Déployez avec aisance, évoluez en toute confiance.',
+  'hero.subtitle': "TLa boîte à outils ultime pour un déploiement sans effort. Nous gérons le déploiement tout en vous accompagnant à chaque étape pour lancer votre solution sur le marché. Aucune compétence en DevOps requise, aucune dépendance aux fournisseurs cloud—juste une évolutivité fluide, un contrôle total et une protection complète des données. Concentrez-vous sur la création et l'innovation, nous nous occupons du reste.",
   'hero.buttonHero': 'Déployer un nouveau projet',
   'service.title1': 'Services API',
   'service.description1': "Notre service API fournit des points de terminaison puissants et faciles à utiliser qui vous permettent d'intégrer des fonctionnalités avancées telles que l'authentification, les bases de données et les données en temps réel dans vos applications. Que vous construisiez un prototype, une startup ou un projet à grande échelle, nos API gèrent la complexité du backend, afin que vous puissiez vous concentrer sur la création rapide et efficace de votre application. Aucune configuration de serveur, aucun problème : juste une intégration transparente pour un développement plus rapide.",
