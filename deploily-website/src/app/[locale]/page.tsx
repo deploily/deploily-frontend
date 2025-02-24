@@ -7,6 +7,7 @@ import HeroContainer from "./containers/heroContainer/heroContainer";
 // import ManagedInfrastructureContainer from "./containers/managedInfrastructureContainer/managedInfrastructureContainer";
 import Footer from "./components/footer";
 import ServiceListContainer from "./containers/ServicesContainer/servicesList";
+import WhyChooseDeploily from "./containers/why-choose-deploily/why-choose-deploily";
 
 export default function LandingPage() {
   return (
@@ -15,6 +16,7 @@ export default function LandingPage() {
       <ScrollToTopButton></ScrollToTopButton>
       <HeroContainer />
       <ServiceListContainer />
+      <WhyChooseDeploily />
       {/* <ApiServiceContainer /> 
        <DeployCodeContainer />
       <ManagedInfrastructureContainer /> */}
