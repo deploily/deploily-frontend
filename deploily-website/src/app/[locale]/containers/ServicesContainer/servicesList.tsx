@@ -20,59 +20,42 @@ export default function ServiceListContainer() {
         <div key={index}>
           <Row
             align="middle"
-            gutter={[16, 16]}
-            style={{padding: "0 8%", 
+            gutter={[10, 16]}
+            style={{
+              padding: "5px 8%",
               flexDirection: isOdd(index) === 0 ? "row-reverse" : "row",
               backgroundColor: token.colorBgBase,
             }}
           >
-            {/* Barre latérale avec effet */}
             <Col
+              xs={1}
+              md={2}
               style={{
                 minHeight: "300px",
-                width: "5px",
+                maxWidth: "1px",
                 backgroundColor: token.colorPrimary,
-                clipPath: "ellipse(20% 50% at 50% 50%)",
+                clipPath: "ellipse(10% 50% at 50% 50%)",
               }}
             />
-
-            {/* Contenu principal */}
-            <Col
-              xs={24}
-              sm={24}
-              md={19}
-              style={{
-                display: "flex",
-                flexDirection: isOdd(index) === 0 ? "row-reverse" : "row",
-                justifyContent: "space-evenly",
-                alignItems: "center",
-              }}
-            >
-              {/* Section du texte */}
-              <Col
-                md={10}
+            <Col xs={20} sm={20} md={12} style={{padding: "0 6%"}}>
+              <Title
+                level={3}
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
+                  fontWeight: "bold",
+                  fontSize: "25px",
+                  color: token.colorTextBase,
                   textAlign: "center",
-                  margin: "30px",
                 }}
               >
-                <Title
-                  level={3}
-                  style={{fontWeight: "bold", fontSize: "25px", color: token.colorTextBase}}
-                >
-                  {service.title.toLocaleUpperCase()}
-                </Title>
-                <Text style={{fontWeight: 500, fontSize: "16px", display: "block"}}>
-                  {service.description}
-                </Text>
-              </Col>
-              <Col xs={24} md={10} style={{display: "flex", justifyContent: "center"}}>
-                {service.image}
-              </Col>{" "}
+                {service.title.toLocaleUpperCase()}
+              </Title>
+              <Text style={{fontWeight: 500, fontSize: "16px", display: "block"}}>
+                {service.description}
+              </Text>
+            </Col>{" "}
+            <Col xs={20} sm={20} md={11} lg={8}>
+              {" "}
+              {service.image}
             </Col>
           </Row>
         </div>

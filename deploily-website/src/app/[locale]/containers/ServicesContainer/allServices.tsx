@@ -8,7 +8,7 @@ export const allServices = (scopedService: any) => [
       <Image
         src="/images/devops.png"
         preview={false} // Désactive l'aperçu modal
-        style={{objectFit: "contain", maxHeight: "100%", width: "100%"}}
+        style={{objectFit: "contain", maxHeight: "100%", width: "90%"}}
         alt="service1"
       />
     ),
@@ -21,7 +21,7 @@ export const allServices = (scopedService: any) => [
       <Image
         src="/images/infrastructure.png"
         preview={false}
-        style={{objectFit: "contain", maxHeight: "100%", width: "100%"}}
+        style={{objectFit: "contain", maxHeight: "100%", width: "90%"}}
         alt="service2"
       />
     ),
@@ -34,7 +34,7 @@ export const allServices = (scopedService: any) => [
       <Image
         src="/images/api.png"
         preview={false}
-        style={{objectFit: "contain", maxHeight: "100%", width: "100%"}}
+        style={{objectFit: "contain", maxHeight: "100%", width: "90%"}}
         alt="service3"
       />
     ),

@@ -2,9 +2,14 @@
 import React from "react";
 import {Row, Col, theme, Typography} from "antd";
 import {
-  CloudUploadOutlined, RocketOutlined, LockOutlined, DollarOutlined, DatabaseOutlined, ApiOutlined
+  CloudUploadOutlined,
+  RocketOutlined,
+  LockOutlined,
+  DollarOutlined,
+  DatabaseOutlined,
+  ApiOutlined,
 } from "@ant-design/icons";
-import { useScopedI18n } from "../../../../../locales/client";
+import {useScopedI18n} from "../../../../../locales/client";
 const {Title} = Typography;
 
 const WhyChooseDeploily = () => {
@@ -28,7 +33,8 @@ const WhyChooseDeploily = () => {
             fontWeight: "bold",
             fontSize: "25px",
             color: token.colorTextBase,
-            marginBottom: "3%", textAlign: "center",
+            marginBottom: "3%",
+            textAlign: "center",
           }}
         >
           {reasonsTranslateList("title")}
@@ -54,7 +60,9 @@ const WhyChooseDeploily = () => {
                 </Row>
                 <Row>
                   {" "}
-                  <Typography.Text style={{fontWeight: 500, fontSize: "16px", display: "block", marginLeft: "6%",}}>
+                  <Typography.Text
+                    style={{fontWeight: 500, fontSize: "16px", display: "block", marginLeft: "6%"}}
+                  >
                     {reason.description}
                   </Typography.Text>
                 </Row>
@@ -69,35 +77,35 @@ const WhyChooseDeploily = () => {
 
 export default WhyChooseDeploily;
 
-const reasons = (reasonsTranslateList: any) =>[
+const reasons = (reasonsTranslateList: any) => [
   {
     title: reasonsTranslateList("title1"),
     description: reasonsTranslateList("description1"),
-    icon: <CloudUploadOutlined style={{ fontSize: 38, color: "#E35B02" }} />,
+    icon: <CloudUploadOutlined style={{fontSize: 38, color: "#E35B02"}} />,
   },
   {
     title: reasonsTranslateList("title2"),
     description: reasonsTranslateList("description2"),
-    icon: <RocketOutlined style={{ fontSize: 38, color: "#E35B02" }} />,
+    icon: <RocketOutlined style={{fontSize: 38, color: "#E35B02"}} />,
   },
   {
     title: reasonsTranslateList("title3"),
     description: reasonsTranslateList("description3"),
-    icon: <LockOutlined style={{ fontSize: 38, color: "#E35B02" }} />,
+    icon: <LockOutlined style={{fontSize: 38, color: "#E35B02"}} />,
   },
   {
     title: reasonsTranslateList("title4"),
     description: reasonsTranslateList("description4"),
-    icon: <DollarOutlined style={{ fontSize: 38, color: "#E35B02" }} />,
+    icon: <DollarOutlined style={{fontSize: 38, color: "#E35B02"}} />,
   },
   {
     title: reasonsTranslateList("title5"),
     description: reasonsTranslateList("description5"),
-    icon: <DatabaseOutlined style={{ fontSize: 38, color: "#E35B02" }} />,
+    icon: <DatabaseOutlined style={{fontSize: 38, color: "#E35B02"}} />,
   },
   {
     title: reasonsTranslateList("title6"),
     description: reasonsTranslateList("description6"),
-    icon: <ApiOutlined style={{ fontSize: 38, color: "#E35B02" }} />,
+    icon: <ApiOutlined style={{fontSize: 38, color: "#E35B02"}} />,
   },
 ];
