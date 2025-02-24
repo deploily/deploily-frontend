@@ -8,5 +8,20 @@ export default {
   'service.title2': "Déployer depuis Git sans DevOps",
   'service.description2': "Oubliez les complexités des workflows DevOps traditionnels. Avec notre plateforme, vous pouvez déployer vos projets directement depuis Git en quelques clics. Vous n'avez besoin d'aucune expérience DevOps ni de connaissances spécialisées : connectez simplement votre référentiel, configurez vos paramètres et déployez en un rien de temps. Rationalisez votre processus de déploiement et mettez votre code en ligne plus rapidement, sans vous soucier des obstacles techniques.",
   'service.title3': 'Construire une infrastructure de déploiement',
-  'service.description3': "Notre plateforme vous permet de créer et de gérer facilement votre infrastructure de déploiement. Que vous déployiez une seule application ou plusieurs services, nos solutions évolutives s'adaptent à vos besoins. Nous fournissons les outils pour créer un pipeline de déploiement transparent, garantissant que votre infrastructure évolue avec vous. De la mise à l'échelle automatisée aux environnements personnalisables, nous avons tout ce dont vous avez besoin pour créer un système de déploiement robuste et fiable."
+  'service.description3': "Notre plateforme vous permet de créer et de gérer facilement votre infrastructure de déploiement. Que vous déployiez une seule application ou plusieurs services, nos solutions évolutives s'adaptent à vos besoins. Nous fournissons les outils pour créer un pipeline de déploiement transparent, garantissant que votre infrastructure évolue avec vous. De la mise à l'échelle automatisée aux environnements personnalisables, nous avons tout ce dont vous avez besoin pour créer un système de déploiement robuste et fiable.",
+  'reasons.title': "Pourquoi choisir deploily :",
+  'reasons.title1': "Aucune compétence DevOps requise",
+  'reasons.description1': "Déployez en quelques secondes—aucune compétence DevOps nécessaire. Connectez simplement votre dépôt et mettez votre application en ligne sans effort.",
+  'reasons.title2': "Rapide et évolutif",
+  'reasons.description2': "Mettez votre application en ligne rapidement avec une configuration minimale. Faites évoluer votre infrastructure en toute transparence à mesure que votre entreprise grandit.",
+  'reasons.title3': "Sécurité et conformité intégrées",
+  'reasons.description3': "Grâce à des mesures de sécurité de niveau entreprise, nous garantissons la protection de vos données et priorisons la confidentialité dès le premier jour.",
+  'reasons.title4': "Solutions économiques",
+  'reasons.description4': "Réduisez vos coûts cloud avec des prix transparents. Payez en devises locales—aucun frais caché.",
+  'reasons.title5': "Infrastructure tout-en-un",
+  'reasons.description5': "Bases de données, stockage et mise en réseau—tout est inclus. Évolutif et personnalisable selon vos besoins.",
+  'reasons.title6': "Intégration API transparente",
+  'reasons.description6': "Connectez facilement l'authentification, les données en temps réel et les services backend. Aucune gestion de serveur requise."
+
+
 } as const

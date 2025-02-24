@@ -19,10 +19,9 @@ export default function ServiceListContainer() {
       {allServices(scopedService).map((service, index) => (
         <div key={index}>
           <Row
-            justify="center"
             align="middle"
             gutter={[16, 16]}
-            style={{
+            style={{padding: "0 8%", 
               flexDirection: isOdd(index) === 0 ? "row-reverse" : "row",
               backgroundColor: token.colorBgBase,
             }}
