@@ -38,7 +38,7 @@ export default function HeroContainer() {
           style={{
             width: "100%",
             textAlign: "center",
-            padding: "20px 40px",
+            padding: "20px 0px",
             marginTop: "50px",
           }}
         >
@@ -84,7 +84,11 @@ export default function HeroContainer() {
               </Col>
             </Row>
           </Col>
-          <Col xs={24} md={10} style={{display: "flex", justifyContent: "center", width: "100%"}}>
+          <Col
+            xs={18}
+            md={10}
+            style={{display: "flex", justifyContent: "center", width: "100%", marginTop: "10px"}}
+          >
             <motion.div
               initial={{opacity: 0, scale: 0.9}}
               animate={{
@@ -100,7 +104,7 @@ export default function HeroContainer() {
                 src="/images/deploy_image.png"
                 width={0}
                 height={0}
-                sizes="100vw"
+                sizes="80vw"
                 style={{width: "100%", height: "auto"}}
                 alt="deploy"
               />

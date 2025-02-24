@@ -9,7 +9,7 @@ export default {
     'service.description2': "Deploying your app is just the beginning! With Deploily, you can easily set up the infrastructure your solution requires, including databases, storage, and networking. We provide everything your application needs to run smoothly, with scalable and customizable environments that grow with you. Simplify infrastructure management and let Deploily handle the heavy lifting!",
     'service.title3': 'APIs Simplified for Innovation',
     'service.description3': "Unlock the full potential of your applications with our powerful and easy-to-use API services. Seamlessly integrate authentication, databases, and real-time data—without the hassle of backend management. Whether you're launching a startup, scaling an enterprise, or prototyping your next big idea, our APIs handle the complexity, so you can focus on innovation. No server setup, no maintenance—just fast, efficient development.",
-    'reasons.title': "Why choose deploily :",
+    'reasons.title': "Why choose deploily ?",
     'reasons.title1':"No DevOps Required",
     'reasons.description1':"Deploy in seconds—no DevOps skills needed. Just connect your repo and go live effortlessly.",
     'reasons.title2':"Fast & Scalable",
@@ -21,6 +21,9 @@ export default {
     'reasons.title5':"All-in-One Infrastructure",
     'reasons.description5':"Databases, storage, and networking—all included. Scalable and customizable to fit your needs.",
     'reasons.title6':"Seamless API Integration",
-    'reasons.description6':"Effortlessly connect authentication, real-time data, and backend services. No server management required."
+    'reasons.description6':"Effortlessly connect authentication, real-time data, and backend services. No server management required.",
+    'partners.title':"Our Partners ",
+    'partners.title1':"ISSAL",
+    'partners.url1':"https://issal.dz/"
 } as const
 

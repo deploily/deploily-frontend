@@ -9,7 +9,7 @@ export default {
   'service.description2': "Oubliez les complexités des workflows DevOps traditionnels. Avec notre plateforme, vous pouvez déployer vos projets directement depuis Git en quelques clics. Vous n'avez besoin d'aucune expérience DevOps ni de connaissances spécialisées : connectez simplement votre référentiel, configurez vos paramètres et déployez en un rien de temps. Rationalisez votre processus de déploiement et mettez votre code en ligne plus rapidement, sans vous soucier des obstacles techniques.",
   'service.title3': 'Construire une infrastructure de déploiement',
   'service.description3': "Notre plateforme vous permet de créer et de gérer facilement votre infrastructure de déploiement. Que vous déployiez une seule application ou plusieurs services, nos solutions évolutives s'adaptent à vos besoins. Nous fournissons les outils pour créer un pipeline de déploiement transparent, garantissant que votre infrastructure évolue avec vous. De la mise à l'échelle automatisée aux environnements personnalisables, nous avons tout ce dont vous avez besoin pour créer un système de déploiement robuste et fiable.",
-  'reasons.title': "Pourquoi choisir deploily :",
+  'reasons.title': "Pourquoi choisir deploily ?",
   'reasons.title1': "Aucune compétence DevOps requise",
   'reasons.description1': "Déployez en quelques secondes—aucune compétence DevOps nécessaire. Connectez simplement votre dépôt et mettez votre application en ligne sans effort.",
   'reasons.title2': "Rapide et évolutif",
@@ -21,7 +21,9 @@ export default {
   'reasons.title5': "Infrastructure tout-en-un",
   'reasons.description5': "Bases de données, stockage et mise en réseau—tout est inclus. Évolutif et personnalisable selon vos besoins.",
   'reasons.title6': "Intégration API transparente",
-  'reasons.description6': "Connectez facilement l'authentification, les données en temps réel et les services backend. Aucune gestion de serveur requise."
-
+  'reasons.description6': "Connectez facilement l'authentification, les données en temps réel et les services backend. Aucune gestion de serveur requise.",
+  'partners.title':"Nos Partenaires ",
+  'partners.title1':"ISSAL",
+  'partners.url1':"https://issal.dz/"
 
 } as const
