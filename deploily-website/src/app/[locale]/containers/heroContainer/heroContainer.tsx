@@ -1,13 +1,13 @@
 "use client";
-import React, {useEffect, useState} from "react";
-import {Button, Col, Row, theme, Typography} from "antd";
+import React, { useEffect, useState } from "react";
+import { Button, Col, Row, theme, Typography } from "antd";
 import Image from "next/image";
-import {motion} from "framer-motion";
-import {useScopedI18n} from "../../../../../locales/client";
+import { motion } from "framer-motion";
+import { useScopedI18n } from "../../../../../locales/client";
 
 export default function HeroContainer() {
-  const {useToken} = theme;
-  const {token} = useToken();
+  const { useToken } = theme;
+  const { token } = useToken();
 
   // const [theme] = useState("dark");
   const scopedHero = useScopedI18n("hero");
@@ -44,7 +44,7 @@ export default function HeroContainer() {
         >
           <Col xs={24} md={12}>
             <Row justify="center" align="middle">
-              <Col style={{padding: "5px"}}>
+              <Col style={{ paddingBottom: "50px", paddingRight: "5px" }}>
                 <Typography.Title
                   style={{
                     fontSize: "clamp(1.5rem, 5vw, 2.5rem)",
@@ -61,6 +61,7 @@ export default function HeroContainer() {
                   style={{
                     width: "90%",
                     paddingTop: "20px",
+                    paddingBottom: "20px",
                     textAlign: "start",
                     fontSize: "clamp(1rem, 3vw, 1.25rem)",
                     color: "#ccdae6",
@@ -71,41 +72,53 @@ export default function HeroContainer() {
               </Col>
               <Col>
                 <Button
-                  type="primary"
                   style={{
-                    marginTop: "50px",
-                    color: "#FFF",
-                    backgroundColor: "#4c96d7",
-                    boxShadow: "none",
+                    width: "100%",
+                    color: "#fff",
+                    height: "40px",
+                    backgroundColor: "#D85912",
+                    border: "none",
+                    marginBottom: "20px",
                   }}
+                  onClick={() => window.location.href = "https://console.deploily.cloud/en"}
                 >
-                  {scopedHero("buttonHero")}
+                  <span
+                    style={{
+                      color: "rgba(220, 233, 245, 0.88)",
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: "16px",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {scopedHero("buttonHero")}
+                  </span>
                 </Button>
+
               </Col>
             </Row>
           </Col>
           <Col
             xs={18}
             md={10}
-            style={{display: "flex", justifyContent: "center", width: "100%", marginTop: "10px"}}
+            style={{ display: "flex", justifyContent: "center", width: "100%", marginTop: "10px" }}
           >
             <motion.div
-              initial={{opacity: 0, scale: 0.9}}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{
                 opacity: imageLoaded ? 1 : 0,
                 scale: imageLoaded ? 1 : 0.9,
               }}
-              transition={{duration: 0.5}}
-              whileHover={{scale: 1.1, rotate: 3}}
-              whileTap={{scale: 0.8}}
-              style={{width: "90%", height: "auto"}}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.1, rotate: 3 }}
+              whileTap={{ scale: 0.8 }}
+              style={{ width: "90%", height: "auto" }}
             >
               <Image
                 src="/images/deploy_image.png"
                 width={0}
                 height={0}
                 sizes="80vw"
-                style={{width: "100%", height: "auto"}}
+                style={{ width: "100%", height: "auto" }}
                 alt="deploy"
               />
             </motion.div>
