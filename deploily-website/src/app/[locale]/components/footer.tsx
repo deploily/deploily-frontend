@@ -10,8 +10,7 @@ function Copyright() {
   return (
     <Typography>
       {"Copyright ©  "}
-      {new Date().getFullYear()}
-      {" "}
+      {new Date().getFullYear()}{" "}
       <Link color="inherit" rel="noopener" target="blank" href={"https://transformatek.dz"}>
         SARL Transformatek
       </Link>
