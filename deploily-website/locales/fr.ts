@@ -1,12 +1,29 @@
 export default {
   'platformName': 'Deploily',
-  'hero.title': 'Du développement au déploiement—En toute simplicité.',
-  'hero.subtitle': "Déployez vos projets en toute simplicité, aucune compétence DevOps n'est requise. Nous proposons des API gratuites et une infrastructure de déploiement puissante pour vous simplifier la vie. Concentrez-vous sur ce que vous faites de mieux pendant que nous nous occupons du déploiement pour vous.",
+  'hero.title': 'Déployez avec aisance, évoluez en toute confiance.',
+  'hero.subtitle': "TLa boîte à outils ultime pour un déploiement sans effort. Nous gérons le déploiement tout en vous accompagnant à chaque étape pour lancer votre solution sur le marché. Aucune compétence en DevOps requise, aucune dépendance aux fournisseurs cloud—juste une évolutivité fluide, un contrôle total et une protection complète des données. Concentrez-vous sur la création et l'innovation, nous nous occupons du reste.",
   'hero.buttonHero': 'Déployer un nouveau projet',
   'service.title1': 'Services API',
   'service.description1': "Notre service API fournit des points de terminaison puissants et faciles à utiliser qui vous permettent d'intégrer des fonctionnalités avancées telles que l'authentification, les bases de données et les données en temps réel dans vos applications. Que vous construisiez un prototype, une startup ou un projet à grande échelle, nos API gèrent la complexité du backend, afin que vous puissiez vous concentrer sur la création rapide et efficace de votre application. Aucune configuration de serveur, aucun problème : juste une intégration transparente pour un développement plus rapide.",
   'service.title2': "Déployer depuis Git sans DevOps",
   'service.description2': "Oubliez les complexités des workflows DevOps traditionnels. Avec notre plateforme, vous pouvez déployer vos projets directement depuis Git en quelques clics. Vous n'avez besoin d'aucune expérience DevOps ni de connaissances spécialisées : connectez simplement votre référentiel, configurez vos paramètres et déployez en un rien de temps. Rationalisez votre processus de déploiement et mettez votre code en ligne plus rapidement, sans vous soucier des obstacles techniques.",
   'service.title3': 'Construire une infrastructure de déploiement',
-  'service.description3': "Notre plateforme vous permet de créer et de gérer facilement votre infrastructure de déploiement. Que vous déployiez une seule application ou plusieurs services, nos solutions évolutives s'adaptent à vos besoins. Nous fournissons les outils pour créer un pipeline de déploiement transparent, garantissant que votre infrastructure évolue avec vous. De la mise à l'échelle automatisée aux environnements personnalisables, nous avons tout ce dont vous avez besoin pour créer un système de déploiement robuste et fiable."
+  'service.description3': "Notre plateforme vous permet de créer et de gérer facilement votre infrastructure de déploiement. Que vous déployiez une seule application ou plusieurs services, nos solutions évolutives s'adaptent à vos besoins. Nous fournissons les outils pour créer un pipeline de déploiement transparent, garantissant que votre infrastructure évolue avec vous. De la mise à l'échelle automatisée aux environnements personnalisables, nous avons tout ce dont vous avez besoin pour créer un système de déploiement robuste et fiable.",
+  'reasons.title': "Pourquoi choisir deploily ?",
+  'reasons.title1': "Aucune compétence DevOps requise",
+  'reasons.description1': "Déployez en quelques secondes—aucune compétence DevOps nécessaire. Connectez simplement votre dépôt et mettez votre application en ligne sans effort.",
+  'reasons.title2': "Rapide et évolutif",
+  'reasons.description2': "Mettez votre application en ligne rapidement avec une configuration minimale. Faites évoluer votre infrastructure en toute transparence à mesure que votre entreprise grandit.",
+  'reasons.title3': "Sécurité et conformité intégrées",
+  'reasons.description3': "Grâce à des mesures de sécurité de niveau entreprise, nous garantissons la protection de vos données et priorisons la confidentialité dès le premier jour.",
+  'reasons.title4': "Solutions économiques",
+  'reasons.description4': "Réduisez vos coûts cloud avec des prix transparents. Payez en devises locales—aucun frais caché.",
+  'reasons.title5': "Infrastructure tout-en-un",
+  'reasons.description5': "Bases de données, stockage et mise en réseau—tout est inclus. Évolutif et personnalisable selon vos besoins.",
+  'reasons.title6': "Intégration API transparente",
+  'reasons.description6': "Connectez facilement l'authentification, les données en temps réel et les services backend. Aucune gestion de serveur requise.",
+  'partners.title':"Nos Partenaires ",
+  'partners.title1':"ISSAL",
+  'partners.url1':"https://issal.dz/"
+
 } as const

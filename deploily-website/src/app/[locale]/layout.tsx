@@ -1,10 +1,10 @@
-import React, { ReactElement } from "react";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import type { Metadata } from "next";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { ConfigProvider } from "antd";
-import { theme } from "../../styles/theme";
-import { I18nProviderClient } from "../../../locales/client";
+import React, {ReactElement} from "react";
+import {GoogleAnalytics} from "@next/third-parties/google";
+import type {Metadata} from "next";
+import {AntdRegistry} from "@ant-design/nextjs-registry";
+import {ConfigProvider} from "antd";
+import {theme} from "../../styles/theme";
+import {I18nProviderClient} from "../../../locales/client";
 import "antd/dist/reset.css";
 
 export const generateViewport = () => ({
@@ -41,14 +41,14 @@ export default async function RootLayout({
   params,
 }: {
   children: ReactElement;
-  params: Promise<{ locale: string }>;
+  params: Promise<{locale: string}>;
 }) {
   // Resolve the params Promise to access the locale
-  const { locale } = await params;
+  const {locale} = await params;
 
   return (
     <html lang={locale}>
-      <body suppressHydrationWarning={true} style={{ margin: "0px" }}>
+      <body suppressHydrationWarning={true} style={{margin: "0px"}}>
         <GoogleAnalytics gaId="G-N5HBREFEE3" />
         <I18nProviderClient locale={locale}>
           <AntdRegistry>

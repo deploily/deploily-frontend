@@ -55,7 +55,7 @@ function AppAppBar() {
             <Row align="middle" justify="space-between" style={{width: "100%"}}>
               <Col>
                 <Image
-                  src="/images/logo_name.png"
+                  src="/images/logo_name_beta.png"
                   width={180}
                   height={70}
                   alt="logo-deploily"
