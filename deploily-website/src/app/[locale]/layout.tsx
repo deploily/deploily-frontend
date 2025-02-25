@@ -47,7 +47,7 @@ export default async function RootLayout({
   const {locale} = await params;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body suppressHydrationWarning={true} style={{margin: "0px"}}>
         <GoogleAnalytics gaId="G-N5HBREFEE3" />
         <I18nProviderClient locale={locale}>
