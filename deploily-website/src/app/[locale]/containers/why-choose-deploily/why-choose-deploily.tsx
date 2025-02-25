@@ -49,6 +49,7 @@ const WhyChooseDeploily = () => {
                     level={3}
                     style={{
                       marginLeft: "2%",
+                      marginRight: "2%",
                       marginTop: "2%",
                       fontWeight: "bold",
                       fontSize: "20px",
@@ -81,31 +82,31 @@ const reasons = (reasonsTranslateList: any) => [
   {
     title: reasonsTranslateList("title1"),
     description: reasonsTranslateList("description1"),
-    icon: <CloudUploadOutlined style={{fontSize: 38, color: "#E35B02"}} />,
+    icon: <CloudUploadOutlined style={{fontSize: 32, color: "#E35B02"}} />,
   },
   {
     title: reasonsTranslateList("title2"),
     description: reasonsTranslateList("description2"),
-    icon: <RocketOutlined style={{fontSize: 38, color: "#E35B02"}} />,
+    icon: <RocketOutlined style={{fontSize: 32, color: "#E35B02"}} />,
   },
   {
     title: reasonsTranslateList("title3"),
     description: reasonsTranslateList("description3"),
-    icon: <LockOutlined style={{fontSize: 38, color: "#E35B02"}} />,
+    icon: <LockOutlined style={{fontSize: 32, color: "#E35B02"}} />,
   },
   {
     title: reasonsTranslateList("title4"),
     description: reasonsTranslateList("description4"),
-    icon: <DollarOutlined style={{fontSize: 38, color: "#E35B02"}} />,
+    icon: <DollarOutlined style={{fontSize: 32, color: "#E35B02"}} />,
   },
   {
     title: reasonsTranslateList("title5"),
     description: reasonsTranslateList("description5"),
-    icon: <DatabaseOutlined style={{fontSize: 38, color: "#E35B02"}} />,
+    icon: <DatabaseOutlined style={{fontSize: 32, color: "#E35B02"}} />,
   },
   {
     title: reasonsTranslateList("title6"),
     description: reasonsTranslateList("description6"),
-    icon: <ApiOutlined style={{fontSize: 38, color: "#E35B02"}} />,
+    icon: <ApiOutlined style={{fontSize: 32, color: "#E35B02"}} />,
   },
 ];
