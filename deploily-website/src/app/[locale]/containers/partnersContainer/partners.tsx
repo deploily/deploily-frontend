@@ -71,6 +71,6 @@ const partners = (partnersTranslateList: any) => [
   {
     name: partnersTranslateList("title1"),
     url: partnersTranslateList("url1"),
-    logo: "/images/issal_logo.jpeg",
+    logo: "/images/issal_logo.png",
   },
 ];
