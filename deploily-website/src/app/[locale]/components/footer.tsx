@@ -2,9 +2,10 @@
 import Image from "next/image";
 import {socialMedias} from "./utils/about";
 import {useState} from "react";
-import {Col, Row, Typography} from "antd";
+import {Col, Row, Typography, Layout} from "antd";
 import {Content} from "antd/es/layout/layout";
 import Link from "next/link";
+import {useScopedI18n} from "../../../../locales/client";
 
 function Copyright() {
   return (
@@ -20,50 +21,137 @@ function Copyright() {
 }
 
 export default function Footer() {
+  const reasonsTranslateList = useScopedI18n("footer");
+
+  const {Footer} = Layout;
   const [theme] = useState("dark");
 
   return (
     <>
-      <Row
-        id="footer"
-        style={{
-          justifyContent: "space-evenly",
-          alignItems: "flex-start",
-          margin: "0px",
-          width: "100%",
-          backgroundColor: theme === "dark" ? "#0c0d0f" : "#FFFFFF",
-        }}
-      >
-        {socialMedias.map((socialM, index) => (
-          <Col key={index}>
-            <a
-              href={socialM.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{margin: "2px", paddingBottom: "0px", color: "white"}}
-            >
-              <Row
-                key={index}
-                style={{
-                  display: "flex",
-                  gap: 1.5,
-                  alignItems: "center",
-                }}
-              >
-                <Image src={socialM.image} width={30} height={30} alt={socialM.alt} />{" "}
+      <Footer style={{background: theme === "dark" ? "#3a3f47" : "#FFFFFF"}}>
+        <Row
+          id="footer"
+          style={{
+            justifyContent: "space-evenly",
+            alignItems: "flex-start",
+            margin: "0px",
+            width: "100%",
+          }}
+        >
+          <Col
+            xs={24}
+            md={24}
+            style={{
+              margin: "2px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Row gutter={[16, 16]} style={{justifyContent: "space-between"}} justify="center">
+              <Col xs={24} md={6}>
                 <Typography.Title
-                  level={5}
-                  underline
-                  style={{margin: 0, padding: 1, color: "white"}}
+                  level={4}
+                  style={{
+                    color: "white",
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                    letterSpacing: "0.5px",
+                  }}
                 >
-                  {socialM.alt}
+                  {reasonsTranslateList("title1")}
                 </Typography.Title>
-              </Row>
-            </a>
+                <Typography.Text
+                  style={{
+                    color: "white",
+                    display: "block",
+                    fontSize: "16px",
+                    letterSpacing: "0.5px",
+                  }}
+                >
+                  {reasonsTranslateList("description1")}
+                </Typography.Text>
+              </Col>
+              <Col xs={24} md={6}>
+                <Typography.Title
+                  level={4}
+                  style={{
+                    color: "white",
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                    letterSpacing: "0.5px",
+                  }}
+                >
+                  {reasonsTranslateList("title2")}{" "}
+                </Typography.Title>
+                <Typography.Text
+                  style={{
+                    color: "white",
+                    display: "block",
+                    fontSize: "16px",
+                    letterSpacing: "0.5px",
+                  }}
+                >
+                  {reasonsTranslateList("description2")}
+                </Typography.Text>
+              </Col>
+              <Col xs={24} md={6}>
+                <Typography.Title
+                  level={4}
+                  style={{
+                    color: "white",
+                    fontSize: "20px",
+                    letterSpacing: "0.5px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {reasonsTranslateList("title3")}{" "}
+                </Typography.Title>
+                <Typography.Text
+                  style={{
+                    color: "white",
+                    display: "block",
+                    fontSize: "16px",
+                    letterSpacing: "0.5px",
+                  }}
+                >
+                  {reasonsTranslateList("description3")}
+                </Typography.Text>
+              </Col>
+            </Row>
           </Col>
-        ))}
-      </Row>
-      <Content style={{background: "#2c82d4"}}>
+
+          {socialMedias.map((socialM, index) => (
+            <Col key={index} style={{paddingTop: "20px"}}>
+              <a
+                href={socialM.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{margin: "2px", paddingBottom: "0px", paddingTop: "50px", color: "white"}}
+              >
+                <Row
+                  key={index}
+                  style={{
+                    display: "flex",
+                    gap: 1.5,
+                    alignItems: "center",
+                  }}
+                >
+                  <Image src={socialM.image} width={30} height={30} alt={socialM.alt} />{" "}
+                  <Typography.Title
+                    level={5}
+                    underline
+                    style={{margin: 0, padding: 1, color: "white"}}
+                  >
+                    {socialM.alt}
+                  </Typography.Title>
+                </Row>
+              </a>
+            </Col>
+          ))}
+        </Row>
+      </Footer>
+      <Content style={{background: "#4b9be6"}}>
         <Row
           style={{
             justifyContent: "space-around",
