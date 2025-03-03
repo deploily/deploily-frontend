@@ -22,8 +22,16 @@ export default {
   'reasons.description5': "Bases de données, stockage et mise en réseau—tout est inclus. Évolutif et personnalisable selon vos besoins.",
   'reasons.title6': "Intégration API transparente",
   'reasons.description6': "Connectez facilement l'authentification, les données en temps réel et les services backend. Aucune gestion de serveur requise.",
-  'partners.title':"Nos Partenaires ",
-  'partners.title1':"ISSAL",
-  'partners.url1':"https://issal.dz/"
+  'partners.title': "Nos Partenaires ",
+  'partners.title1': "ISSAL",
+  'partners.url1': "https://issal.dz/",
+  "footer.title1": "À propos de nous",
+  "footer.description1": "Nous simplifions le déploiement et la mise à l'échelle, aidant les développeurs et les entreprises à lancer leurs plateformes numériques sans effort—aucune expertise DevOps requise, aucune dépendance au cloud.",
+  "footer.title2": "Notre mission",
+  "footer.description2": "Rassembler les développeurs et les experts DevOps au sein d'un écosystème communautaire unique.",
+  "footer.title3": "Nos valeurs",
+  "footer.description3": "Confidentialité, Fiabilité, Scalabilité."
+
+
 
 } as const

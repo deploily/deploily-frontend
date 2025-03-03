@@ -24,6 +24,12 @@ export default {
     'reasons.description6':"Effortlessly connect authentication, real-time data, and backend services. No server management required.",
     'partners.title':"Our Partners ",
     'partners.title1':"ISSAL",
-    'partners.url1':"https://issal.dz/"
+    'partners.url1':"https://issal.dz/",
+    'footer.title1':"About Us",
+    'footer.description1':"We simplify deployment and scaling, helping developers and businesses launch their digital platforms effortlessly—no DevOps expertise needed, no cloud lock-in.",
+    'footer.title2':"Our mission",
+    'footer.description2':"Bringing together developers and DevOps in a single community ecosystem.",
+    'footer.title3':"Our values",
+    'footer.description3':"Confidentiality, Reliability, scalability."
 } as const
 
