@@ -1,5 +1,5 @@
-import {Image} from "antd";
-import {StarOutlined, ToolOutlined, UserOutlined} from "@ant-design/icons";
+import { Image } from "antd";
+import { StarOutlined, ToolOutlined, UserOutlined } from "@ant-design/icons";
 
 export const allServices = (scopedService: any) => [
   {
@@ -8,11 +8,11 @@ export const allServices = (scopedService: any) => [
       <Image
         src="/images/devops.png"
         preview={false} // Désactive l'aperçu modal
-        style={{objectFit: "contain", maxHeight: "100%", width: "90%"}}
+        style={{ objectFit: "contain", maxHeight: "100%", width: "90%" }}
         alt="service1"
       />
     ),
-    icon: <StarOutlined style={{fontSize: 32, color: "orange"}} />,
+    icon: <StarOutlined style={{ fontSize: 32, color: "orange" }} />,
     description: scopedService("description1"),
   },
   {
@@ -21,11 +21,11 @@ export const allServices = (scopedService: any) => [
       <Image
         src="/images/infrastructure.png"
         preview={false}
-        style={{objectFit: "contain", maxHeight: "100%", width: "90%"}}
+        style={{ objectFit: "contain", maxHeight: "100%", width: "90%" }}
         alt="service2"
       />
     ),
-    icon: <ToolOutlined style={{fontSize: 32, color: "grey"}} />,
+    icon: <ToolOutlined style={{ fontSize: 32, color: "grey" }} />,
     description: scopedService("description2"),
   },
   {
@@ -34,11 +34,24 @@ export const allServices = (scopedService: any) => [
       <Image
         src="/images/api.png"
         preview={false}
-        style={{objectFit: "contain", maxHeight: "100%", width: "90%"}}
+        style={{ objectFit: "contain", maxHeight: "100%", width: "90%" }}
         alt="service3"
       />
     ),
-    icon: <UserOutlined style={{fontSize: 32, color: "grey"}} />,
+    icon: <UserOutlined style={{ fontSize: 32, color: "grey" }} />,
     description: scopedService("description3"),
+  },
+  {
+    title: scopedService("title4"),
+    image: (
+      <Image
+        src="/images/resources-ondemand.png"
+        preview={false}
+        style={{ objectFit: "contain", maxHeight: "100%", width: "90%" }}
+        alt="service3"
+      />
+    ),
+    icon: <UserOutlined style={{ fontSize: 32, color: "grey" }} />,
+    description: scopedService("description4"),
   },
 ];
