@@ -1,9 +1,9 @@
 "use client";
 import * as React from "react";
 import Image from "next/image";
-import {useEffect, useRef, useState} from "react";
-import {Col, Row} from "antd";
-import Layout, {Header} from "antd/es/layout/layout";
+import { useEffect, useRef, useState } from "react";
+import { Col, Row } from "antd";
+import Layout, { Header } from "antd/es/layout/layout";
 import LocaleSwitcher from "@/components/locale/localeSwitcher";
 
 function AppAppBar() {
@@ -52,19 +52,20 @@ function AppAppBar() {
               justifyContent: "space-between",
             }}
           >
-            <Row align="middle" justify="space-between" style={{width: "100%"}}>
+            <Row align="middle" justify="space-between" style={{ width: "100%" }}>
               <Col>
                 <Image
-                  src="/images/logo_name_beta.png"
-                  width={180}
-                  height={70}
+                  src="/images/logo_name.png"
+                  width={200}
+                  height={50}
                   alt="logo-deploily"
                   style={{
                     marginRight: "20px",
+                    marginTop: '5px'
                   }}
                 />
               </Col>
-              <Col style={{display: "flex", alignItems: "start", height: "50%"}}>
+              <Col style={{ display: "flex", alignItems: "start", height: "50%" }}>
                 <LocaleSwitcher color={appBarColor} />
               </Col>
             </Row>
