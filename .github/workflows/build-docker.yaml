@@ -60,8 +60,8 @@ jobs:
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
 
-  Explore-GitHub-Actions:
-    # You need to use the INSTALLATION_NAME from the previous step
-    runs-on: arc-rset-deploily
-    steps:
-    - run: echo "🎉 This job uses runner scale set runners!"      
+#  Explore-GitHub-Actions:
+#    # You need to use the INSTALLATION_NAME from the previous step
+#    runs-on: arc-rset-deploily
+#    steps:
+#    - run: echo "🎉 This job uses runner scale set runners!"      
